@@ -1,0 +1,22 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "Sample Node App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ramesh1589/node-app.git"
+  },
+  "author": "Ramesh Rathod",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ramesh1589/node-app/issues"
+  },
+  "homepage": "https://github.com/Ramesh1589/node-app#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
