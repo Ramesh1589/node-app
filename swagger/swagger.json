@@ -1,0 +1,233 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "Brainvire Infotech Pvt. Ltd.",
+      "version": "1.0.0",
+      "title": "Demo Application API",
+      "license": {
+        "name": "Demo Application"
+      }
+    },
+    "host": "localhost:8000",
+    "basePath": "/api",
+    "tags": [
+      {
+        "name": "Auth",
+        "description": "Authentication API",
+        "externalDocs": {
+          "description": "Auth Module",
+          "url": "/auth"
+        }
+      }
+    ],
+    "schemes": [
+      "http"
+    ],
+    "paths": {
+      "/auth/login": {
+        "post": {
+          "tags": [
+            "Auth"
+          ],
+          "summary": "User Login API",
+          "description": "User Login API",
+          "operationId": "Auth",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Created user object",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/login"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Login Response",
+              "schema": {
+                "$ref": "#/definitions/ApiResponse"
+              }
+            },
+            "400": {
+              "description": "Invalid Username/Password",
+              "schema": {
+                "$ref": "#/definitions/ApiResponse"
+              }
+            },
+            "401": {
+              "description": "Access token is missing or invalid",
+              "schema": {
+                "$ref": "#/definitions/UnauthorizedError"
+              }
+            },
+            "404": {
+              "description": "Email not exist"
+            }
+          }
+        }
+      },
+      "/auth/users": {
+        "get": {
+          "tags": [
+            "Auth"
+          ],
+          "summary": "User Login API",
+          "description": "User Login API",
+          "operationId": "Auth",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "page",
+              "in": "query",
+              "description": "Page number for Pagination",
+              "required": true,
+              "type": "integer"
+            },
+            {
+              "name": "search",
+              "in": "query",
+              "description": "Search String",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success Response",
+              "schema": {
+                "$ref": "#/definitions/ApiResponse"
+              }
+            },
+            "401": {
+              "description": "Access token is missing or invalid",
+              "schema": {
+                "$ref": "#/definitions/UnauthorizedError"
+              }
+            },
+            "404": {
+              "description": "Route not found"
+            }
+          },
+          "security": [
+            {
+              "JWT": []
+            }
+          ]
+        }
+      }
+      
+    },
+    "securityDefinitions": {
+      "JWT": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      }
+    },
+    "definitions": {
+      "login": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "loginResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "number"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "email": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              }
+            }
+          },
+          "message": {
+            "type": "string"
+          }
+
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "username": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "userStatus": {
+            "type": "integer",
+            "format": "int32",
+            "description": "User Status"
+          }
+        },
+        "xml": {
+          "name": "User"
+        }
+      },
+      "ApiResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data":{
+            "type": "object"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "UnauthorizedError": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+     }
+      
+    }
+  }
