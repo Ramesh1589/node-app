@@ -1,11 +1,13 @@
 const service = require('./auth.service');
-
+const constant = require('../../utils/constant.js');
 
 class AuthController {
     constructor(){}
 
+ 
     async userLogin(req, res) {
-        let response = await service.userLogin(req.body);
+        let lang = req.headers.language || 'en';
+	    let response = await service.userLogin(req.body);
         response.token = "brainvire"
         res.status(200).json({
             status: 200,
@@ -15,8 +17,9 @@ class AuthController {
     }
 
     async userList(req, res) {
-        console.log("Get Users List", req.headers);
-        console.log("Get Users List", req.query);
+        let lang = req.headers.language || 'en';
+	    console.log("Getting JSON File", JSON.stringify(constant));
+        // console.log("Get Users List", req.query);
         if(req.headers && req.headers.authorization){
             res.status(200).json({
                 status: 200,

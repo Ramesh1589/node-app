@@ -18,6 +18,13 @@
           "description": "Auth Module",
           "url": "/auth"
         }
+      },{
+        "name": "News",
+        "description": "News  API Module",
+        "externalDocs": {
+          "description": "News Module",
+          "url": "/news"
+        }
       }
     ],
     "schemes": [
@@ -45,6 +52,7 @@
                 "$ref": "#/definitions/login"
               }
             }
+            
           ],
           "responses": {
             "200": {
@@ -76,9 +84,8 @@
           "tags": [
             "Auth"
           ],
-          "summary": "User Login API",
-          "description": "User Login API",
-          "operationId": "Auth",
+          "summary": "Get Login Uses",
+          "description": "Get Login Users",
           "produces": [
             "application/json"
           ],
@@ -88,7 +95,8 @@
               "in": "query",
               "description": "Page number for Pagination",
               "required": true,
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             },
             {
               "name": "search",
@@ -97,6 +105,136 @@
               "required": true,
               "type": "string"
             }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success Response",
+              "schema": {
+                "$ref": "#/definitions/ApiResponse"
+              }
+            },
+            "401": {
+              "description": "Access token is missing or invalid",
+              "schema": {
+                "$ref": "#/definitions/UnauthorizedError"
+              }
+            },
+            "404": {
+              "description": "Route not found"
+            }
+          },
+          "security": [
+            {
+              "JWT": []
+            }
+          ]
+        }
+      },
+      "/news": {
+        "get": {
+          "tags": [
+            "News"
+          ],
+          "summary": "Get All news list",
+          "description": "Get All news list",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success Response",
+              "schema": {
+                "$ref": "#/definitions/ApiResponse"
+              }
+            },
+            "401": {
+              "description": "Access token is missing or invalid",
+              "schema": {
+                "$ref": "#/definitions/UnauthorizedError"
+              }
+            },
+            "404": {
+              "description": "Route not found"
+            }
+          },
+          "security": [
+            {
+              "JWT": []
+            }
+          ]
+        },
+        "post": {
+          "tags": [
+            "News"
+          ],
+          "summary": "Create News API",
+          "description": "Creating news API",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success Response",
+              "schema": {
+                "$ref": "#/definitions/ApiResponse"
+              }
+            },
+            "401": {
+              "description": "Access token is missing or invalid",
+              "schema": {
+                "$ref": "#/definitions/UnauthorizedError"
+              }
+            },
+            "404": {
+              "description": "Route not found"
+            }
+          },
+          "security": [
+            {
+              "JWT": []
+            }
+          ]
+        },
+        "delete": {
+          "tags": [
+            "News"
+          ],
+          "summary": "Delete News API",
+          "description": "Delete news API",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success Response",
+              "schema": {
+                "$ref": "#/definitions/ApiResponse"
+              }
+            },
+            "401": {
+              "description": "Access token is missing or invalid",
+              "schema": {
+                "$ref": "#/definitions/UnauthorizedError"
+              }
+            },
+            "404": {
+              "description": "Route not found"
+            }
+          },
+          "security": [
+            {
+              "JWT": []
+            }
+          ]
+        },
+        "put": {
+          "tags": [
+            "News"
+          ],
+          "summary": "Update News API",
+          "description": "Update News API",
+          "produces": [
+            "application/json"
           ],
           "responses": {
             "200": {
@@ -227,7 +365,7 @@
             "type": "string"
           }
         }
-     }
+      }
       
     }
   }

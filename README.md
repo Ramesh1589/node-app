@@ -1,2 +1,2 @@
 # node-app
-Sampl Node App For Deploymnet
+Sample Node App For Deploymnet
