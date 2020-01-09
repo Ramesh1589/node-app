@@ -1,0 +1,8 @@
+const path = require('path');
+
+module.exports = {
+  'config': path.resolve('./db/mysql', 'sequel_db.js'),
+  'models-path': path.resolve('./db/mysql', 'schema'),
+  'seeders-path': path.resolve('./db/mysql', 'seeders'),
+  'migrations-path': path.resolve('./db/mysql', 'migrations')
+}

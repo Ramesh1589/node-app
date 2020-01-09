@@ -1,0 +1,14 @@
+{
+  "registration": {
+    "SUBJECT": "Verificar tu Email en News Video",
+    "MESSAGE": "<p>Hola %s.</p> <p>¡Bienvenido! Para verificar tu Email, por favor haz click en este enlace:</p> <p>%s/verify/%s</p> <p>Gracias.</p>"
+  },
+  "forgotPassword": {
+    "SUBJECT": "Recuperar contraseña en News Video",
+    "MESSAGE": "<p>Para recuperar la contraseña para el usuario: %s</p> <p>haz click en el siguiente enlace:</p> <p>%s/reset-password?user_token=%s</p> <p>Si esto fue un error, puedes ignorar este mensaje.</p> <p>Gracias.</p>"
+  },
+  "customerFeedback": {
+    "SUBJECT": "Customer Feedback",
+    "MESSAGE": "<p>Name: %s</p> <p>Message: %s</p> <p>Thank you.</p>"
+  }
+}
