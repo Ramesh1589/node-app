@@ -1,0 +1,71 @@
+{
+    "db": {
+      "mysql": {
+        "host": "localhost",
+        "port": 3306,
+        "username": "root",
+        "password": "",
+        "database": "demo",
+        "dialect": "mysql",
+        "logging": false,
+        "define": {
+          "underscored": true,
+          "freezeTableName": true,
+          "syncOnAssociation": true,
+          "charset": "utf8mb4",
+          "collate": "utf8mb4_unicode_ci"
+        },
+        "dialectOptions": {
+          "multipleStatements": true
+        },
+        "sync": {
+          "force": true
+        },
+        "syncOnAssociation": true,
+        "pool": {
+          "max": 10,
+          "min": 0,
+          "idle": 30000,
+          "acquire": 60000
+        }
+      },
+       "mongodb": {
+        "database": "demo",
+        "server": "localhost",
+        "port": "27017",
+        "user": "",
+        "password": "",
+        "options": {
+          "useUnifiedTopology": true,
+          "useNewUrlParser": true,
+          "useCreateIndex": true,
+          "autoReconnect": true,
+          "reconnectTries": 100,
+          "reconnectInterval": 1000,
+          "connectTimeoutMS": 300000,
+          "socketTimeoutMS": 300000,
+          "keepAlive": true
+        }
+      } 
+    },
+    "aws": {
+      "s3": {
+        "bucketName": "xxxx"
+      },
+      "sns": {
+        "arn": {
+          "globalTopic": "xxx",
+          "android": "xxx",
+          "ios": ""
+        }
+      }
+    },
+    "FRONTEND_URL": "https://xxx.net",
+    "SMTP": {
+      "MAIL_HOST": "xxxx",
+      "MAIL_PORT": 587,
+      "FROM_NAME": "Demo Development",
+      "FROM_ADDRESS": "xxx@xxx.net"
+    }
+  }
+  
