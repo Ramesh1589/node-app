@@ -37,6 +37,17 @@ class AuthController {
         
 
     }
+
+    async getDetails(){
+        let {error, response } = await service.getDetails();
+        if(!error){
+            console.log('Reponse -->', JSON.stringify(response))
+        }else{
+            console.log('Error Reponse -->', JSON.stringify(error))
+        }
+
+    };
+
 }
 
 
