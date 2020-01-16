@@ -5,17 +5,17 @@ const should = require('chai').should();
 const expect = require('chai').expect;
 const assert = require('chai').assert;
 
-describe('DEMO Testing', function() {
-  it("Demo Test", async function(done) {
+describe('Auth Component Testing', function() {
+  it("Auth Component Test", async function(done) {
     done()
   });
-  it("Demo Test", async function(done) {
+  it("Auth Component Test", async function(done) {
     done()
   });
-  it("Demo Test", async function(done) {
+  it("Auth Component Test", async function(done) {
     done()
   });
-  it("Demo Test", async function(done) {
+  it("Auth Component Test", async function(done) {
     done()
   });
 });  
