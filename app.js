@@ -1,7 +1,8 @@
 const express =  require('express')
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const swaggerUi = require('swagger-ui-express');
+  const bodyParser = require('body-parser');
+  const cors = require('cors');
+
+  const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger/swagger.json');
 
 const routes = require('./routes/index');

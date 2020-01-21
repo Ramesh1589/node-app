@@ -1,11 +1,11 @@
 {
   "db": {
     "mysql": {
-      "host": "bvdemo-db1.ce160qu8waqf.ap-south-1.rds.amazonaws.com",
+      "host": "localhost",
       "port": 3306,
-      "username": "nvdev",
-      "password": "KesGqls*18$a",
-      "database": "nv_dev_db",
+      "username": "root",
+      "password": "",
+      "database": "demo",
       "dialect": "mysql",
       "logging": false,
       "define": {
@@ -28,25 +28,43 @@
         "idle": 30000,
         "acquire": 60000
       }
-    }
+    },
+     "mongodb": {
+      "database": "demo",
+      "server": "localhost",
+      "port": "27017",
+      "user": "",
+      "password": "",
+      "options": {
+        "useUnifiedTopology": true,
+        "useNewUrlParser": true,
+        "useCreateIndex": true,
+        "autoReconnect": true,
+        "reconnectTries": 100,
+        "reconnectInterval": 1000,
+        "connectTimeoutMS": 300000,
+        "socketTimeoutMS": 300000,
+        "keepAlive": true
+      }
+    } 
   },
   "aws": {
     "s3": {
-      "bucketName": "nvdev01"
+      "bucketName": "xxxx"
     },
     "sns": {
       "arn": {
-        "globalTopic": "arn:aws:sns:ap-south-1:271418263486:news_video_broadcast",
-        "android": "arn:aws:sns:ap-south-1:271418263486:app/GCM/newsvideo-AndrDev",
+        "globalTopic": "xxx",
+        "android": "xxx",
         "ios": ""
       }
     }
   },
-  "FRONTEND_URL": "https://nvdev.brainvire.net",
+  "FRONTEND_URL": "https://xxx.net",
   "SMTP": {
-    "MAIL_HOST": "email-smtp.ap-south-1.amazonaws.com",
+    "MAIL_HOST": "xxxx",
     "MAIL_PORT": 587,
-    "FROM_NAME": "News Video Development",
-    "FROM_ADDRESS": "newsvideo@nvdev.brainvire.net"
+    "FROM_NAME": "Demo Development",
+    "FROM_ADDRESS": "xxx@xxx.net"
   }
 }

@@ -5,7 +5,7 @@ const should = require('chai').should();
 const expect = require('chai').expect;
 const assert = require('chai').assert;
 
-describe('Customer Component Testing', function() {
+describe('# Customer Component Testing', function() {
   it("Customer Component Test", async function(done) {
     done()
   });
