@@ -17,6 +17,8 @@ require('./socket/chat')(io);
 
 const admin = io.of('/admin');
 
+console.log('Added COnsole in Server File....')
+
 http.listen(8000, function () {
    console.log('Server Listening On port', 8000)
 });
