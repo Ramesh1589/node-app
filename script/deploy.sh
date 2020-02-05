@@ -1,6 +1,6 @@
 #!/bin/sh
 ssh ubuntu@52.66.183.73 
-    cd ~/project
+    cd ~/node-app
     git pull origin master
     nvm install v10.11.0
     npm install
