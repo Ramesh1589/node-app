@@ -1,15 +1,16 @@
 const express =  require('express')
-  const bodyParser = require('body-parser');
-  const cors = require('cors');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+var ejs = require('ejs');
 
-  const swaggerUi = require('swagger-ui-express');
+const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger/swagger1.json');
 
 const routes = require('./routes/index');
 
 
 const app = express()
-
+app.set('view engine', 'ejs');
 var options = {
     explorer: false
   };
@@ -38,6 +39,17 @@ app.use(bodyParser.text());
 app.use('/api-docs', swaggerUi.serve);
 app.get('/api-docs', swaggerUi.setup(swaggerDocument, options));
 
+app.get('/', function(req, res){
+  // res.send('Welcome To ChatBot')
+  res.render('../index')
+  // res.sendFile('../index.ejs', { root: __dirname });
+
+})
+
+
+app.post('/', function(req, res){
+ console.log('Incoming Request Body =====>', req.body)
+})
 routes(app);
 
 // done! we export it so we can start the site in start.js

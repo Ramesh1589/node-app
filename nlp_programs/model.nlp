@@ -1,0 +1,346 @@
+{
+  "settings": {
+    "languages": [
+      "hi"
+    ],
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp"
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "hi"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "hi": {
+        "settings": {
+          "locale": "hi",
+          "tag": "domain-manager-hi",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "trainByDomain": false,
+          "useStemDict": true
+        },
+        "stemDict": {
+          "अब,अलविद,क,ल": {
+            "intent": "greetings.bye",
+            "domain": "default"
+          },
+          "अप,अलविद,ध्यान,रख": {
+            "intent": "greetings.bye",
+            "domain": "default"
+          },
+          "अच्छ,बाद,म,मिल,है": {
+            "intent": "greetings.bye",
+            "domain": "default"
+          },
+          "अभ,अलविद,क,ल": {
+            "intent": "greetings.bye",
+            "domain": "default"
+          },
+          "चाह,ज,मुझ": {
+            "intent": "greetings.bye",
+            "domain": "default"
+          },
+          "नमस्कार": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          },
+          "नमस्": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          },
+          "कैस,ह": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "greetings.bye": "default",
+          "greetings.hello": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "अब के लिए अलविदा",
+            "intent": "greetings.bye"
+          },
+          {
+            "domain": "default",
+            "utterance": "अलविदा अपना ध्यान रखना",
+            "intent": "greetings.bye"
+          },
+          {
+            "domain": "default",
+            "utterance": "अच्छा बाद में मिलते है",
+            "intent": "greetings.bye"
+          },
+          {
+            "domain": "default",
+            "utterance": "अभी के लिए अलविदा",
+            "intent": "greetings.bye"
+          },
+          {
+            "domain": "default",
+            "utterance": "मुझे जाना चाहिए",
+            "intent": "greetings.bye"
+          },
+          {
+            "domain": "default",
+            "utterance": "नमस्कार",
+            "intent": "greetings.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "नमस्ते",
+            "intent": "greetings.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "कैसे हो",
+            "intent": "greetings.hello"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "hi",
+              "tag": "nlu-hi",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "अब": 1,
+              "क": 1,
+              "ल": 1,
+              "अलविद": 1,
+              "अप": 1,
+              "ध्यान": 1,
+              "रख": 1,
+              "अच्छ": 1,
+              "बाद": 1,
+              "म": 1,
+              "मिल": 1,
+              "है": 1,
+              "अभ": 1,
+              "मुझ": 1,
+              "ज": 1,
+              "चाह": 1,
+              "नमस्कार": 1,
+              "नमस्": 1,
+              "कैस": 1,
+              "ह": 1
+            },
+            "intents": {
+              "greetings.bye": 1,
+              "greetings.hello": 1
+            },
+            "intentFeatures": {
+              "greetings.bye": [
+                "अब",
+                "क",
+                "ल",
+                "अलविद",
+                "अप",
+                "ध्यान",
+                "रख",
+                "अच्छ",
+                "बाद",
+                "म",
+                "मिल",
+                "है",
+                "अभ",
+                "मुझ",
+                "ज",
+                "चाह"
+              ],
+              "greetings.hello": [
+                "नमस्कार",
+                "नमस्",
+                "कैस",
+                "ह"
+              ]
+            },
+            "neuralNetwork": {
+              "features": [
+                "अब",
+                "क",
+                "ल",
+                "अलविद",
+                "अप",
+                "ध्यान",
+                "रख",
+                "अच्छ",
+                "बाद",
+                "म",
+                "मिल",
+                "है",
+                "अभ",
+                "मुझ",
+                "ज",
+                "चाह",
+                "नमस्कार",
+                "नमस्",
+                "कैस",
+                "ह"
+              ],
+              "intents": [
+                "greetings.bye",
+                "greetings.hello"
+              ],
+              "perceptrons": [
+                [
+                  1.1810537576675415,
+                  2.375765085220337,
+                  2.375765085220337,
+                  4.354667663574219,
+                  1.9788987636566162,
+                  1.9788987636566162,
+                  1.9788987636566162,
+                  2.0583267211914062,
+                  2.0583267211914062,
+                  2.0583267211914062,
+                  2.0583267211914062,
+                  2.0583267211914062,
+                  1.1947104930877686,
+                  3.4257194995880127,
+                  3.4257194995880127,
+                  3.4257194995880127,
+                  -2.1544604301452637,
+                  -2.1314620971679688,
+                  -1.151645302772522,
+                  -1.151645302772522,
+                  2.1979426628175647
+                ],
+                [
+                  -0.714042603969574,
+                  -1.3182263374328613,
+                  -1.3182263374328613,
+                  -2.401305913925171,
+                  -1.0830790996551514,
+                  -1.0830790996551514,
+                  -1.0830790996551514,
+                  -1.1295216083526611,
+                  -1.1295216083526611,
+                  -1.1295216083526611,
+                  -1.1295216083526611,
+                  -1.1295216083526611,
+                  -0.6041834354400635,
+                  -1.869371771812439,
+                  -1.869371771812439,
+                  -1.869371771812439,
+                  6.6249589920043945,
+                  6.664978504180908,
+                  3.450875997543335,
+                  3.450875997543335,
+                  5.67177947260764
+                ]
+              ],
+              "perceptronSettings": {
+                "locale": "hi",
+                "tag": "nlu-hi",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "hi",
+        "अब के लिए अलविदा"
+      ],
+      [
+        "hi",
+        "अलविदा अपना ध्यान रखना"
+      ],
+      [
+        "hi",
+        "अच्छा बाद में मिलते है"
+      ],
+      [
+        "hi",
+        "अभी के लिए अलविदा"
+      ],
+      [
+        "hi",
+        "मुझे जाना चाहिए"
+      ],
+      [
+        "hi",
+        "नमस्कार"
+      ],
+      [
+        "hi",
+        "नमस्ते"
+      ],
+      [
+        "hi",
+        "कैसे हो"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {
+      "hi": {
+        "greetings.bye": [
+          {
+            "answer": "अगली बार तक"
+          },
+          {
+            "answer": "जल्द ही फिर मिलेंगे!"
+          }
+        ],
+        "greetings.hello": [
+          {
+            "answer": "सुनो!"
+          },
+          {
+            "answer": "अभिवादन!"
+          }
+        ]
+      }
+    }
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}

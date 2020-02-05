@@ -5,7 +5,7 @@
             "port": 3306,
             "username": "root",
             "password": "local",
-            "database": "newsvideo",
+            "database": "xxxx",
             "dialect": "mysql",
             "logging": false,
             "define": {
@@ -30,7 +30,7 @@
             }
         },
         "mongodb": {
-            "database": "newsvideo",
+            "database": "xxxx",
             "server": "localhost",
             "port": "27017",
             "user": "local",
