@@ -2,16 +2,15 @@ const Joi = require('@hapi/joi');
 
 let schema = {}
 schema.registerEmployee = Joi.object().keys({
-    fullName   :    Joi.string().trim().required(),
-    empCode    :    Joi.string().trim().required(),
+    first_name   :    Joi.string().trim().required(),
+    emp_code    :    Joi.string().trim().required(),
     mobile     :    Joi.string().trim().required(),
     position   :    Joi.string().trim().required(),
 });
 
 schema.updateEmployee = Joi.object().keys({
-    employeeID         :    Joi.number().required(),
-    fullName   :    Joi.string().trim().optional(),
-    empCode    :    Joi.string().trim().optional(),
+    first_name   :    Joi.string().trim().optional(),
+    emp_code    :    Joi.string().trim().optional(),
     mobile     :    Joi.string().trim().optional(),
     position   :    Joi.string().trim().optional(),
 });

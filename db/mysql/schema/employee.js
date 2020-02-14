@@ -21,8 +21,17 @@ module.exports = (sequelize, DataTypes) => {
   }
 
   // Update Employee
-  employee.updateUployee = function (data, empId) {
+  employee.updateEmployee = function (data, empId) {
     return this.update(data, {
+      where: {
+        id: empId
+      }
+    })
+  }
+
+  // Update Employee
+  employee.deleteEmployee = function (empId) {
+    return this.destroy({
       where: {
         id: empId
       }

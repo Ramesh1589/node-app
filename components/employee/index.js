@@ -34,7 +34,18 @@ router.get('/employee', catchErrors(controller.getEmployeeList));
 * headers: "Content-Type": "application/json"
 * body: id, fullName, empCode, mobile, position
 */
-router.put('/employee', catchErrors(controller.updatedetails));
+router.put('/employee/:id', catchErrors(controller.updatedetails));
+
+
+/*
+* Platform: Web
+* Update Details Route
+* method: PUT
+* path: /employee
+* headers: "Content-Type": "application/json"
+* body: id, fullName, empCode, mobile, position
+*/
+router.delete('/employee/:id', catchErrors(controller.deleteRecord));
 
 module.exports =  router;
 

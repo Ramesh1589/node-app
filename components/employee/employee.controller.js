@@ -1,7 +1,7 @@
 const Joi = require('@hapi/joi');
 const SQLDB = require('../../db/mysql')
 const { catchErrors } = require('../../handlers/errors')
-const { registerEmployee } = require('./employee.validate')
+const { registerEmployee, updateEmployee } = require('./employee.validate')
 const constant = require('../../utils/constant')
 
 /*********************
@@ -72,8 +72,20 @@ exports.getEmployeeList = async function (req, res, next) {
  */
 exports.updatedetails = async function (req, res, next) {
     const lang = req.headers.language || 'en';
+    const id = req.params.id;
     let {error, value} =  updateEmployee.validate(req.body);
     if(!error){
+        const updated = await SQLDB.employee.updateEmployee(value, id)
+        if (!updated) {
+
+            return next(new Error('Unable to Delete Employee!'))
+
+        } else {
+            res.status(constant.httpStatusCode.success).json({
+                status: constant.responseCodes.successfulOperation,
+                message: "Successfully Operation"
+            })
+        }
         res.status(constant.httpStatusCode.success).json({
             status:constant.responseCodes.successfulOperation,
             data: req.body,
@@ -84,6 +96,33 @@ exports.updatedetails = async function (req, res, next) {
             status: constant.responseCodes.revalidation,
             message: error.details[0].message.replace(/['"]/g, '')
         });
+    }
+
+}
+
+
+/** Platform: Web
+ * Update Employee Details API
+ * @param  {Number} empCode - Employee no
+ * @param  {String} fullName - Employee Name
+ * @param  {string} empCode - Employee Code
+ * @param  {string} mobile - Employee Mobile Number
+ * @param  {string} position - Employee Position
+ * @return {Object} success - Success message
+ */
+exports.deleteRecord = async function (req, res, next) {
+    const lang = req.headers.language || 'en';
+    const empId = req.params.id
+    const deleted = await SQLDB.employee.deleteEmployee(empId)
+    if (!deleted) {
+
+        return next(new Error('Unable to Delete Employee!'))
+
+    } else {
+        res.status(constant.httpStatusCode.success).json({
+            status: constant.responseCodes.successfulOperation,
+            message: "Successfully Operation"
+        })
     }
 
 }
