@@ -3,7 +3,7 @@
 const util = require('util')
 const logger = require('./handlers/logger')(module)
 // mysql connection
-// require('./db/mysql')
+require('./db/mysql')
 //mongodb connection
 // require('./db/mongo').connect()
 
@@ -17,7 +17,7 @@ require('./socket/chat')(io);
 
 const admin = io.of('/admin');
 
-console.log('Added COnsole in Server File....')
+console.log('Added Console in Server File....')
 
 http.listen(8000, function () {
    console.log('Server Listening On port', 8000)

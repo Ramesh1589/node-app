@@ -5,7 +5,7 @@ const config = convict({
   env: {
     doc: 'The applicaton environment.',
     format: ['production', 'development', 'qa', 'local', 'dev'],
-    default: 'dev',
+    default: 'development',
     env: 'NODE_ENV',
     arg: 'env'
   },
@@ -14,7 +14,7 @@ const config = convict({
       host: {
         doc: 'Holds the SQL Server Host',
         format: String,
-        default: '10.50.250.9'
+        default: 'localhost'
       },
       port: {
         doc: 'Holds the SQL Server Port',
@@ -24,17 +24,17 @@ const config = convict({
       username: {
         doc: 'Holds the SQL Server Username',
         format: String,
-        default: 'nvdev'
+        default: 'root'
       },
       password: {
         doc: 'Holds the SQL Server Password',
         format: String,
-        default: 'e6%n8TEc2UsT'
+        default: ''
       },
       database: {
         doc: 'Holds the Database In SQL Server',
         format: String,
-        default: 'nv_dev_db'
+        default: 'demo'
       },
       dialect: {
         doc: 'Holds the Dialect Details That we are using for the Connection',
@@ -129,7 +129,7 @@ const config = convict({
       user: {
         doc: 'Holds the Mongo Server Username',
         format: String,
-        default: 'nvdev'
+        default: ''
       },
       password: {
         doc: 'Holds the Mongo  DB Server Password',

@@ -25,6 +25,9 @@
           "description": "News Module",
           "url": "/news"
         }
+      },{
+        "name": "Employee",
+        "description": "Employee  API Module"
       }
     ],
     "schemes": [
@@ -259,6 +262,128 @@
             }
           ]
         }
+      },
+      "/employee": {
+        "get": {
+          "tags": [
+            "Employee"
+          ],
+          "summary": "Get All employee list",
+          "description": "Get All employee list",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "page",
+              "in": "query",
+              "description": "Page number for Pagination",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            },
+            {
+              "name": "search",
+              "in": "query",
+              "description": "Search String",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success Response",
+              "schema": {
+                "$ref": "#/definitions/ApiResponse"
+              }
+            },
+            "401": {
+              "description": "Access token is missing or invalid",
+              "schema": {
+                "$ref": "#/definitions/UnauthorizedError"
+              }
+            },
+            "404": {
+              "description": "Route not found"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "Employee"
+          ],
+          "summary": "Create employee API",
+          "description": "Creating employee API",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Employee details",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/employee"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success Response",
+              "schema": {
+                "$ref": "#/definitions/ApiResponse"
+              }
+            },
+            "401": {
+              "description": "Access token is missing or invalid",
+              "schema": {
+                "$ref": "#/definitions/UnauthorizedError"
+              }
+            },
+            "404": {
+              "description": "Route not found"
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "Employee"
+          ],
+          "summary": "Update Employee API",
+          "description": "Update Employee API",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Employee update details",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/employee"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success Response",
+              "schema": {
+                "$ref": "#/definitions/ApiResponse"
+              }
+            },
+            "401": {
+              "description": "Access token is missing or invalid",
+              "schema": {
+                "$ref": "#/definitions/UnauthorizedError"
+              }
+            },
+            "404": {
+              "description": "Route not found"
+            }
+          }
+        }
       }
       
     },
@@ -281,10 +406,35 @@
           }
         }
       },
+      "employee":{
+        "type": "object",
+        "required": [
+          "fullName", "empCode",
+          "mobile", "position"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "empCode": {
+            "type": "string"
+          },
+          "mobile": {
+            "type": "string"
+          },
+          "position": {
+            "type": "string"
+          }
+        }
+      },
       "loginResponse": {
         "type": "object",
         "properties": {
-          "status": {
+          "code": {
             "type": "number"
           },
           "data": {

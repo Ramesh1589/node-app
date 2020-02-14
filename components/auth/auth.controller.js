@@ -1,6 +1,8 @@
+const Joi = require('@hapi/joi');
 const service = require('./auth.service');
 const constant = require('../../utils/constant.js');
 const lruCache = require('lru-cache');
+let {userLogin } = require('./validation')
 
 // Cache options come from config.  If config does not define this, module using this library does not need cache services, so
 // assume default values instead.
@@ -15,29 +17,37 @@ class AuthController {
  
     async userLogin(req, res) {
         const lang = req.headers.language || 'en';
-        const {username, password} =  req.body
-        const cacheKey = username;
-        const data = cache.get(username);
-        
-        if(data){
-            console.log('Fetching from Cache', data)
-            res.status(200).json({
-                status: 200,
-                data: data,
-                message: "Successfull fetching data from server cache"
-            })
+        let {error, value} =  userLogin.validate(req.body);
+        if(!error){
+            const {username, password} =  req.body
+            const cacheKey = username;
+            const data = cache.get(username);
+            if(data){
+                console.log('Fetching from Cache', data)
+                res.status(200).json({
+                    status: 200,
+                    data: data,
+                    message: "Successfull fetching data from server cache"
+                })
+            }else{
+                console.log('Fetching from DB Service')
+                let response ;
+                response = await service.userLogin(req.body);
+                response.token = "brainvire"
+                cache.set(cacheKey, response);
+                res.status(200).json({
+                    status: 200,
+                    data: response,
+                    message: "Successfull fetching from from db server"
+                })
+            }
         }else{
-            console.log('Fetching from DB Service')
-            let response ;
-            response = await service.userLogin(req.body);
-            response.token = "brainvire"
-            cache.set(cacheKey, response);
-            res.status(200).json({
-                status: 200,
-                data: response,
-                message: "Successfull fetching from from db server"
-            })
+            res.json({
+                status: 400,
+                message: error.details[0].message.replace(/['"]/g, '')
+            });
         }
+        
     }
 
     async userList(req, res) {

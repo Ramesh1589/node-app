@@ -6,6 +6,8 @@ var ejs = require('ejs');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger/swagger.json');
 
+const swaggerDocument1 = require('./swagger/swagger1.json');
+
 const routes = require('./routes/index');
 
 
@@ -38,6 +40,10 @@ app.use(bodyParser.text());
 
 app.use('/api-docs', swaggerUi.serve);
 app.get('/api-docs', swaggerUi.setup(swaggerDocument, options));
+
+
+// app.use('/api-docs1', swaggerUi.serve)
+// app.get('/api-docs1', swaggerUi.setup(swaggerDocument1, options));
 
 // app.get('/', function(req, res){
 //   // res.send('Welcome To ChatBot')
