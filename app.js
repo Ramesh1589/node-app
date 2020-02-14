@@ -1,5 +1,7 @@
 const express =  require('express')
 const bodyParser = require('body-parser');
+
+const path = require('path');
 const cors = require('cors');
 var ejs = require('ejs');
 
@@ -15,7 +17,7 @@ const app = express()
 app.set('view engine', 'ejs');
 var options = {
     explorer: false
-  };
+};
 
 
 // enable cors for all origins!
@@ -45,17 +47,16 @@ app.get('/api-docs', swaggerUi.setup(swaggerDocument, options));
 // app.use('/api-docs1', swaggerUi.serve)
 // app.get('/api-docs1', swaggerUi.setup(swaggerDocument1, options));
 
-// app.get('/', function(req, res){
-//   // res.send('Welcome To ChatBot')
-//   res.render('../index')
-//   // res.sendFile('../index.ejs', { root: __dirname });
-
-// })
+// Set Static Folder
+app.use(express.static(path.join(__dirname, './dist')));
 
 
-// app.post('/', function(req, res){
-//  console.log('Incoming Request Body =====>', req.body)
-// })
+app.use('/', express.static(path.join(__dirname, './dist')));
+app.get('/', (req, res)=> {
+        res.sendFile(__dirname + './dist/index.html');
+});
+
+
 routes(app);
 
 // done! we export it so we can start the site in start.js
