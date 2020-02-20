@@ -1,6 +1,8 @@
 const Joi = require('@hapi/joi');
 const service = require('./auth.service');
 const constant = require('../../utils/constant.js');
+const { buildSuccessObject, handleSuccess, 
+        handleError, buildErrObject } = require('../../handlers/errors')
 const lruCache = require('lru-cache');
 let {userLogin } = require('./validation')
 
@@ -24,28 +26,33 @@ class AuthController {
             const data = cache.get(username);
             if(data){
                 console.log('Fetching from Cache', data)
-                res.status(200).json({
-                    status: 200,
-                    data: data,
-                    message: "Successfull fetching data from server cache"
-                })
+                handleSuccess(res, buildSuccessObject(200, data, "Successfull fetching data from server cache"))
+                // res.status(200).json({
+                //     status: 200,
+                //     data: data,
+                //     message: 
+                // })
             }else{
                 console.log('Fetching from DB Service')
                 let response ;
                 response = await service.userLogin(req.body);
                 response.token = "brainvire"
                 cache.set(cacheKey, response);
-                res.status(200).json({
-                    status: 200,
-                    data: response,
-                    message: "Successfull fetching from from db server"
-                })
+                handleSuccess(res, buildSuccessObject(200, response, "Successfull fetching from from db server"))
+               
+                // res.status(200).json({
+                //     status: 200,
+                //     data: response,
+                //     message: "Successfull fetching from from db server"
+                // })
             }
         }else{
-            res.json({
-                status: 400,
-                message: error.details[0].message.replace(/['"]/g, '')
-            });
+            handleError(res, buildErrObject(400, error.details[0].message.replace(/['"]/g, '')))
+             
+            // res.json({
+            //     status: 400,
+            //     message: error.details[0].message.replace(/['"]/g, '')
+            // });
         }
         
     }

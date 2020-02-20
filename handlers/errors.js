@@ -9,6 +9,19 @@ exports.buildErrObject = (code, message) => {
     message
   }
 }
+
+/**
+ * Builds error object
+ * @param {number} status - error status code
+ * @param {string} message - error text
+ */
+exports.buildSuccessObject = (code, data, message) => {
+  return {
+    code,
+    data,
+    message
+  }
+}
 /**
  * Handles error by printing to console in development env and builds and sends an error response
  * @param {Object} res - response object
@@ -24,6 +37,24 @@ exports.handleError = (res, err) => {
     message: err.message
   })
 }
+
+
+/**
+ * Handles error by printing to console in development env and builds and sends an error response
+ * @param {Object} res - response object
+ * @param {Object} err - error object
+ */
+exports.handleSuccess = (res, object) => {
+  // Prints error in console
+  console.error('Generic Response:', )
+  // Sends error to user
+  res.status(200).json({ // 500 changed to 200 for frontend loader issue
+    code: object.code,
+    data: object.data,
+    message: object.message
+  })
+}
+
 /*
   Catch Errors Handler
 
