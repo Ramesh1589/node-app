@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.loader {
+
+  border: 15px solid transparent;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  border-top: 15px solid #3498db; 
+  border-right: 15px solid transparent;
+  -webkit-animation: spin 2s linear infinite; 
+  animation: spin 2s linear infinite; 
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+
+/* Spinner 1 */
+.spinner-1:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  margin-top: -30px;
+  margin-left: -30px;
+  border-radius: 50%;
+  border: 3px solid lightgray;
+  border-top-color: coral;
+  animation: spinner 0.7s linear infinite;
+}
+
+/* Spinner 2 */
+.spinner-2:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  margin-top: -30px;
+  margin-left: -30px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: coral;
+  border-bottom-color: coral;
+  animation: spinner 0.7s ease infinite;
+}
+
+/* Spinner 3 */
+.spinner-3:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  margin-top: -30px;
+  margin-left: -30px;
+  border-radius: 50%;
+  border-top: 2px solid coral;
+  border-right: 2px solid transparent;
+  animation: spinner 0.7s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+</style>
+</head>
+<body>
+
+<h2>How To Create A Loader</h2>
+
+<div class="loader"></div>
+
+
+<div class="main">
+    <h1>Hello, Welcome to my website</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat quibusdam voluptatum magnam temporibus amet recusandae dolor, quod id voluptates neque officiis deserunt culpa. Magnam, explicabo, rem sed excepturi voluptates, repellat ducimus necessitatibus
+      aspernatur consequatur ipsum aperiam odit iusto id nostrum!</p>
+  </div>
+
+  <div class="main1">
+    <h1>Hello, Welcome to my website</h1>
+  </div>
+
+
+  <div class="main2">
+    <h1>Hello, Welcome to my website</h1>
+  </div>
+
+
+</body>
+<script>
+    document.querySelector(".main p").style.display = "none";
+
+    document.querySelector(".main p").classList.add("spinner-1");
+    
+    document.querySelector(".main1 p").classList.add("spinner-2");
+    
+    document.querySelector(".main2 p").classList.add("spinner-3");
+
+    // Mimic Server Request
+    // setTimeout(() => {
+    // document.querySelector(".main").classList.remove("spinner-1");
+    // document.querySelector(".main p").style.display = "block";
+    // }, 4000);
+
+</script>
+</html>

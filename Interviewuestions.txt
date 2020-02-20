@@ -4,7 +4,8 @@ What is node js?
     •	Node js is a java script runtime environment.
     •	It is built on Chrome's V8 JavaScript engine.
     •	Node js is open source.
-    •	It provides an event driven, non-blocking (asynchronous) I/O and cross-platform runtime environment for building highly scalable server-side application using JavaScript.
+    •	It provides an event driven, non-blocking (asynchronous) I/O and cross-platform runtime environment 
+        for building highly scalable server-side application using JavaScript.
 
 1.	Advantages of Node js
     •	Node js is open-source framework.
@@ -17,31 +18,40 @@ What is node js?
     •	A callback is a function which is called when a task is completed, 
         thus helps in preventing any kind of blocking and a callback function allows other code to run in the meantime.
     •	Callback is called when task get completed and is asynchronous equivalent for a function.
-    •	Using Callback concept, Node.js can process a large number of requests without waiting for any function to return the result which makes Node.js highly scalable.
-    •	For Example: In Node.js, when a function start reading file, it returns the control to execution environment immediately so that the next instruction can be executed. 
+    •	Using Callback concept, Node.js can process a large number of requests without waiting 
+        for any function to return the result which makes Node.js highly scalable.
+    •	For Example: In Node.js, when a function start reading file, it returns the control to execution environment immediately 
+        so that the next instruction can be executed. 
     •	Once file I/O gets completed, callback function will get called to avoid blocking or wait for File I/O.
 
 3.	What is event driven Programming?
     •	JavaScript is an event-driven programming language which inherently supports non-blocking operations.
-    •	Event-driven programming is a programming paradigm in which the flow of the program is determined by events such as user actions (mouse clicks, key presses), sensor outputs, or messages from other programs/threads. In practice, it means that applications act on events.
+    •	Event-driven programming is a programming paradigm in which the flow of the program is determined 
+        by events such as user actions (mouse clicks, key presses), sensor outputs, or messages from other programs/threads. 
+        In practice, it means that applications act on events.
     •	When the event is executed, control is returned to the event loop and another event is processed.
-    •	It means as soon as Node starts its server, it simply initiates its variables, declares functions and then simply waits for event to occur.
-    •	Event driven programming is a generic concept where event emitter emits the number of events and a main loop listens to these events and immediately triggers a callback function as soon as the corresponding event is detected in that loop.
+    •	It means as soon as Node starts its server, it simply initiates its variables, declares functions 
+        and then simply waits for event to occur.
+    •	Event driven programming is a generic concept where event emitter emits the number of events and a main loop listens 
+        to these events and immediately triggers a callback function as soon as the corresponding event is detected in that loop.
 
 4.	What is Blocking IO ?
-    •	Traditionally when a system calls an I/O request that comes to a webserver and is assigned to an available thread or each concurrent connection there is a thread. 
+    •	Traditionally when a system calls an I/O request that comes to a webserver and is assigned to an available thread or 
+        each concurrent connection there is a thread. 
     •	The request is handled continuously on that thread until the request is complete and response is sent.  
     •	While handling the data between functions such as GetFile(file) & Open(File) there will be some amount of idle time. 
     •	Thread consumes memory, so a long-running thread for each connection & not using it is not efficient.
 
 5.	What is Non-Blocking I/O ?
     •	A system call is returned immediately without waiting for the data to be read or written (aka operation to complete). 
-    •	If no results are available at the moment of the call, the function will simply return a predefined constant, indicating that there is no data available to return at that moment.
+    •	If no results are available at the moment of the call, the function will simply return a predefined constant, 
+        indicating that there is no data available to return at that moment.
     •	A loop iterate over the resource and when the resource is found (the operation is completed) it is returned. 
-    •	This loop consumes CPU for iterating over the resource that is unavailable most of the time. This is called busy-waiting. Traditional Non-Blocking I/O.
+    •	This loop consumes CPU for iterating over the resource that is unavailable most of the time. 
+        This is called busy-waiting. Traditional Non-Blocking I/O.
 
 6.	What is Promises ?
-    •	A promise is basically an advancement of callbacks in Node. 
+    •	A promise is basically an advancement of callbacks in node. 
     •	While developing an application we may encounter that we are using a lot of nested callback functions.
     •	This is what happens due to the nesting of callback functions. 
     •	Now imagine if we need to perform multiple nested operations like this. 
@@ -60,9 +70,11 @@ What is node js?
         Rejected: The state of a promise representing a failed operation.
     Example:
     A Promise in short:
-    "Imagine you are a kid. Your mom promises you that she'll get you a new phone next week." You don't know if you will get that phone until next week. Your mom can either really buy you a brand new phone, or stand you up and withhold the phone if she is not happy .
-    That is a promise. A promise has 3 states. They are:
-    Pending: You don't know if you will get that phone
+       "Imagine you are a kid. Your mom promises you that she'll get you a new phone next week." You don't know if you will get that phone until next week.
+        Your mom can either really buy you a brand new phone, or stand you up and withhold the phone if she is not happy .
+        That is a promise. A promise has 3 states. They are:
+        
+        Pending: You don't know if you will get that phone
         Fulfilled: Mom is happy, she buys you a brand new phone
         Rejected: Your mom is happy, she withholds the phone
-    https://www.geeksforgeeks.org/es6-promises/
+        https://www.geeksforgeeks.org/es6-promises/

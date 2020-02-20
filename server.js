@@ -3,7 +3,7 @@
 const util = require('util')
 const logger = require('./handlers/logger')(module)
 // mysql connection
-require('./db/mysql')
+// require('./db/mysql')
 //mongodb connection
 // require('./db/mongo').connect()
 

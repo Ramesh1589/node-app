@@ -1,0 +1,70 @@
+//To get total count of male and female
+db.getCollection('employee').aggregate([
+
+   {$group : {_id : "$gender", total : {$sum : 1}} }
+   
+])
+
+//Output ::
+/* 1 */
+{
+    "_id" : "female",
+    "total" : 123.0
+}
+
+/* 2 */
+{
+    "_id" : "male",
+    "total" : 148.0
+}
+
+//Count employee Based on eyeColor
+db.getCollection('employee').aggregate([
+   {$match: { eyeColor : { $in : ['brown', 'green']}} },
+   {$group: {_id: '$eyeColor', count: {$sum: 1}}}
+])
+
+//Sum Of Employee Salary using groupBY
+db.getCollection('employee').aggregate([
+    {$group: { _id: '$gender', totalSalary: {$sum: '$salary'}}}
+])
+
+//Output ::
+/* 1 */
+{
+    "_id" : "female",
+    "totalSalary" : 518115.0
+}
+
+/* 2 */
+{
+    "_id" : "male",
+    "totalSalary" : 649042.0
+}
+
+
+// To Add All Ssalary of Employee
+db.getCollection('employee').aggregate([
+    {$group: { _id: null, totalSalary: {$sum: '$salary'}}}
+])
+
+//Output ::
+/* 1 */
+{
+    "_id" : null,
+    "totalSalary" : 1167157.0
+}
+
+
+// Finding Avrage Age of Employees
+db.getCollection('employee').aggregate([
+    {$group: { _id: null, angAge: {$avg: '$age'}}}
+
+])
+
+//Output ::
+/* 1 */
+{
+    "_id" : null,
+    "avgAge" : 30.2250922509225
+}

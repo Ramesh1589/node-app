@@ -5,17 +5,17 @@
 
 
 
-console.log("Output 1 ::", 2+true) //Outpu == 3
+// console.log("Output 1 ::", 2+true) //Outpu == 3
 
-console.log("Output 2 ::", '6'+9)    //Output ==69
+// console.log("Output 2 ::", '6'+9)    //Output ==69
+// 
+// console.log("Output 3 :: ", 4+3+2+"1")  //Output == 91
 
-console.log("Output 3 :: ", 4+3+2+"1")  //Output == 91
+// console.log("Output 4 :: ",  1 > 1 > 1)  //eg 1>1 ==0 anf 0>1 == false  //output=false
 
-console.log("Output 4 :: ",  1 > 1 > 1)  //eg 1>1 ==0 anf 0>1 == false  //output=false
+// console.log("Output 5 :: ", "1"+2+4)   //Output: 123
 
-console.log("Output 5 :: ", "1"+2+4)   //Output: 123
-
-console.log("Output 6",typeof null, null == undefined)   // bcz tyoeof null is object and oject always true. i.e Output == true
+// console.log("Output 6",typeof null, null == undefined)   // bcz tyoeof null is object and oject always true. i.e Output == true
 
 // for(var i = 0; i < 10; i++) {
 //     setTimeout(function() {
@@ -32,7 +32,7 @@ console.log("Output 6",typeof null, null == undefined)   // bcz tyoeof null is o
 //     })(i)
 // }
 
-console.log("Output :: 7", [].toString(), [] == true)  //Outputr == False
+// console.log("Output :: 7", [].toString(), [] == true)  //Outputr == False
 
 var myObject = {
    
@@ -40,7 +40,7 @@ var myObject = {
    
     someFunction : function () { 
 
-        console.log("function is Called ::")
+        // console.log("function is Called ::")
 
 
     }
@@ -60,7 +60,7 @@ var employee = {
 
        this.salary = fee ? this.salary - fee : this.salary;
 
-       console.log('Output :: ', this.name + ' remaining balance is '+ this.salary)
+    //    console.log('Output :: ', this.name + ' remaining balance is '+ this.salary)
 
        return this.name + ' remaining balance is '+ this.salary; 
     }
@@ -104,7 +104,7 @@ var person2 = {
 
 }
 
-console.log("Example 1 of Call Method ::", person.fullName.call(person2));
+// console.log("Example 1 of Call Method ::", person.fullName.call(person2));
 
 var person = {
 
@@ -120,7 +120,7 @@ var person1 = {
 }
 person.fullName.call(person1, "Oslo", "Norway");
 
-console.log("Exaple 2 of call Method", person.fullName.call(person1, "pune", "india"))
+// console.log("Exaple 2 of call Method", person.fullName.call(person1, "pune", "india"))
 
 
 
@@ -136,7 +136,7 @@ var person1 = {
 }
 person.fullName.apply(person1);  // Will return "Mary Doe"
 
-console.log("Example 1 of Call Object", person.fullName.apply(person1))
+// console.log("Example 1 of Call Object", person.fullName.apply(person1))
 
 
 var person = {
@@ -150,7 +150,7 @@ var person1 = {
 }
 var result = person.fullName.apply(person1, ["Pune", "India"]);
 
-console.log('*** Example 2 of Apply Methods ***', result)
+// console.log('*** Example 2 of Apply Methods ***', result)
 
 // The Difference Between call() and apply()
 // The difference is:
@@ -177,9 +177,9 @@ function addBase(base) {
 
     return (num) => {
 
-        console.log('BaseValue', base)
+        // console.log('BaseValue', base)
    
-        console.log('NewValue', num)
+        // console.log('NewValue', num)
     
         return base + num;
     }
@@ -190,13 +190,13 @@ let result1 = addTen(5); //15
 let result2 = addTen(80); //90
 let result3 = addTen(-5); //5
 
-console.log('Currying Result1', result1)
+// console.log('Currying Result1', result1)
 
 
-console.log('Currying Result2', result2)
+// console.log('Currying Result2', result2)
 
 
-console.log('Currying Result3', result3)
+// console.log('Currying Result3', result3)
 
 
 //Java Script Chaining 
@@ -209,7 +209,7 @@ var obj = {   // every method returns obj---------v
 
 let response = obj.first().second().third();
 
-console.log('Javascript Chaining Example', response.first)
+// console.log('Javascript Chaining Example', response.first)
 
 
 
@@ -234,32 +234,32 @@ let dublicate = removeDuplicate([1, 3, 3, 3, 1, 5, 6, 7, 8, 1]);
 //ES6 Removed Duplicates
 let dublicate1 =  [...new Set([1, 3, 3, 3, 1, 5, 6, 7, 8, 1])]
 
-console.log("Dublicate Array ::", dublicate, dublicate1)
+// console.log("Dublicate Array ::", dublicate, dublicate1)
 
 
 //Swapping Two no without temp
 function swapNumb(a, b) {
     
-    console.log('before swap: ', 'a: ', a, 'b: ', b);
+    // console.log('before swap: ', 'a: ', a, 'b: ', b);
     
     b = b - a;   //3-2 = 1   ie. b=1
-    
+   //---------// 
     a = a + b;    // 2+1= 3  ie a=3
     
     b = a - b;    // 3-1 = 2 ie b= 2
     
-    console.log('after swap: ', 'a: ', a, 'b: ', b);
+    // console.log('after swap: ', 'a: ', a, 'b: ', b);
 }
   
 swapNumb(2, 3);
 
 //Swap number using bitmanuplation
 function swapNumb1(a, b) {
-    console.log("a: " + a + " and b: " + b);
+    // console.log("a: " + a + " and b: " + b);
     a = a ^ b;
     b = a ^ b;
     a = a ^ b;
-    console.log("a: " + a + " and b: " + b);
+    // console.log("a: " + a + " and b: " + b);
 }
 
 swapNumb1(2, 3);
@@ -286,13 +286,13 @@ function removeDuplicateChar(str){
          newStr.push(j);
     }
 
-    console.log("Character countss", charCount)
+    // console.log("Character countss", charCount)
     return {newString: newStr.join(''), count: charCount};
   }
 
 let string = removeDuplicateChar('Learn more javascript dude');
 
-console.log('Rervese string -->', string)
+// console.log('Rervese string -->', string)
 
 
 //Count Total number of zeros from 1 upto n?
@@ -307,7 +307,7 @@ function countZero(n) {
 
 let totalZero = countZero(2020);
 
-console.log('Total number of Zeros', totalZero)
+// console.log('Total number of Zeros', totalZero)
 
 
 //Sum of string upto Singl Digits
@@ -327,11 +327,24 @@ let t1 = sumUptoSingle(191)
 
 function additionsofnumbers(number){
 
-    let result = 0 
+    let result = 0 , result2 = 0;
+    let index = 1
 
     for(var i = 1; i <= number; i++){
 
+        console.log("Number", i)
+
         result+= i
+
+    }
+
+    while(index <= number){
+   
+        result2+=index
+
+        index++
+
+        console.log("Result of while loop", result2)
 
     }
 
@@ -339,7 +352,7 @@ function additionsofnumbers(number){
 
 }
 
-let sumAllNumbers = additionsofnumbers(100)
+let sumAllNumbers = additionsofnumbers(10)
 
 console.log("Additin of n numbers --->", sumAllNumbers)
 
@@ -356,7 +369,7 @@ function removeDuplicates() {
     ]; 
       
     // Display the list of array objects 
-    console.log(books); 
+    // console.log(books); 
 
     // Declare a new array 
     let newArray = []; 
@@ -374,7 +387,7 @@ function removeDuplicates() {
         uniqueObject[objTitle] = books[i]; 
     } 
 
-    console.log("Unique Title -->", uniqueObject)
+    // console.log("Unique Title -->", uniqueObject)
       
     // Loop to push unique object into array 
     for (i in uniqueObject) { 
@@ -382,7 +395,7 @@ function removeDuplicates() {
     } 
       
     // Display the unique objects 
-    console.log("Unique Array --->", newArray); 
+    // console.log("Unique Array --->", newArray); 
 } 
 
 removeDuplicates()
@@ -401,9 +414,9 @@ var arr = ["GFG_1", "GeeksForGeeks",
                 "Geeks", "Computer Science Portal"];
 var arr2 = [1,2,3,4,5,6,7,8,9,10]                 
 function selectRandom() { 
-    console.log("Printing Math Function Logic", Math.floor(Math.random()),  Math.floor(Math.random() * arr.length))
+    // console.log("Printing Math Function Logic", Math.floor(Math.random()),  Math.floor(Math.random() * arr.length))
     let randomString =  arr2[Math.floor(Math.random() * arr2.length)]; 
-    console.log("Random String -->", randomString)
+    // console.log("Random String -->", randomString)
 }  
 selectRandom()
 
@@ -412,7 +425,7 @@ selectRandom()
 function checkDate() { 
     var date = new Date(); 
     var day = date.getDay(); 
-    console.log("Get Day", day)
+    // console.log("Get Day", day)
     var ans = (day === 6); 
       
     if (ans) { 
@@ -420,8 +433,43 @@ function checkDate() {
     } else { 
         ans = "Today is not Weekend."; 
     } 
-    console.log("Output::", ans)
+    // console.log("Output::", ans)
     return ans
 }  
 
 checkDate()
+
+
+//Javascript Filter
+const demoData = [{
+    name:'ramesh',
+    role: 'developer',
+    tech: "node js"
+},{
+    name:'ramesh1',
+    role: 'developer1',
+    tech: "node js1"
+},{
+    name:'ramesh2',
+    role: 'developer2',
+    tech: "node js2"
+},{
+    name:'ramesh3',
+    role: 'developer3',
+    tech: "node js3"
+},{
+    name:'ramesh4',
+    role: 'developer4',
+    tech: "node js4"
+},{
+    name:'ramesh5',
+    role: 'developer5',
+    tech: "node js5"
+},{
+    name:'ramesh6',
+    role: 'developer6',
+    tech: "node js6"
+}]
+
+
+
