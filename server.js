@@ -11,7 +11,7 @@ const logger = require('./handlers/logger')(module)
 // start our app
 const app = require('./app');
 // setting the port
-app.set('port', process.env.PORT || 7777)
+app.set('port', process.env.PORT || 8000)
 const http = require("http").createServer(app);
 const io = require("socket.io")(http);
 require('./socket/socket')(io);

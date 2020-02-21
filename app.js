@@ -1,9 +1,41 @@
-const express =  require('express')
-const bodyParser = require('body-parser');
-
-const path = require('path');
-const cors = require('cors');
+const util = require('util')
+const path = require('path')
+const compression = require('compression')
+const helmet = require('helmet')
+const express = require('express')
+const bodyParser = require('body-parser')
+const cors = require('cors')
+const i18n = require('i18n')
 var ejs = require('ejs');
+// logger
+const logger = require('./handlers/logger')(module)
+
+const app = express()
+
+app.use(logger.startHttpLogger())
+// initialize passport
+// require('./handlers/passport').init(app)
+// Enable compression
+app.use(compression())
+// Prevent opening page in frame or iframe to protect from clickjacking
+app.use(helmet.frameguard())
+// Remove X-Powered-By
+app.use(helmet.hidePoweredBy())
+// Prevent47425c77-e744-4dd6-b8d4-a4e91bf03b6as browser from caching and storing page
+app.use(helmet.noCache())
+// Allow loading resources only from white-listed domains
+// app.use(helmet.csp())
+// Allow communication only on HTTPS
+// app.use(helmet.hsts())
+// Enable XSS filter in IE (On by default)
+app.use(helmet.xssFilter())
+// Forces browser to only use the Content-Type set in the response header
+// instead of sniffing or guessing it
+// app.use(helmet.contentTypeOptions())
+const errorHandlers = require('./handlers/errors')
+const { getIP } = require('./helpers')
+// enable cors for all origins!
+app.use(cors())
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger/swagger.json');
@@ -11,9 +43,6 @@ const swaggerDocument = require('./swagger/swagger.json');
 const swaggerDocument1 = require('./swagger/swagger1.json');
 
 // const routes = require('./routes/index');
-
-
-const app = express()
 app.set('view engine', 'ejs');
 var options = {
     explorer: false
