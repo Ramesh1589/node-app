@@ -68,3 +68,57 @@ db.getCollection('employee').aggregate([
     "_id" : null,
     "avgAge" : 30.2250922509225
 }
+
+
+//Aggregate Using Bucket 
+db.getCollection('employee').aggregate([
+    {
+    $bucket: {
+      groupBy: "$age",                        // Field to group by
+      boundaries: [20, 25, 30, 35, 40 ], // Boundaries for the buckets
+      default: "Other",                             // Bucket id for documents which do not fall into a bucket
+      output: {                                     // Output for each bucket
+        "count": { $sum: 1 },
+        "employee" :
+          {
+            $push: {
+              "name": { $concat: [ "$name"] },
+              "age": "$age"
+            }
+          }
+      }
+    }
+  }
+])
+
+// Output ::
+[
+
+{
+    "_id" : 20.0,
+    "count" : 65.0,
+    "employee" : [ 
+        {
+            "name" : "Loraine Ingram",
+            "age" : 21.0
+        }, 
+        {
+            "name" : "Reeves Alexander",
+            "age" : 23.0
+        }, 
+    ]
+},{
+    "_id" : 25.0,
+    "count" : 65.0,
+    "employee" : [ 
+        {
+            "name" : "Loraine Ingram",
+            "age" : 2.0
+        }, 
+        {
+            "name" : "Reeves Alexander",
+            "age" : 23.0
+        }, 
+    ]
+}
+]

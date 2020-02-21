@@ -10,7 +10,7 @@ const swaggerDocument = require('./swagger/swagger.json');
 
 const swaggerDocument1 = require('./swagger/swagger1.json');
 
-const routes = require('./routes/index');
+// const routes = require('./routes/index');
 
 
 const app = express()
@@ -57,7 +57,9 @@ app.get('/', (req, res)=> {
 });
 
 
-routes(app);
+// routes(app);
+// after all that above middleware, we finally handle our own routes!
+require('./components')(app)
 
 // done! we export it so we can start the site in start.js
 module.exports = app;
