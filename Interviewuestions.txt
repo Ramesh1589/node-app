@@ -78,3 +78,20 @@ What is node js?
         Fulfilled: Mom is happy, she buys you a brand new phone
         Rejected: Your mom is happy, she withholds the phone
         https://www.geeksforgeeks.org/es6-promises/
+
+7. What .env file in node js and Why we use ? How to Save our confidwntial data at server side?
+Ans: Node.js is an environment that helps you create server-side applications using JavaScript. 
+    One of the common Node.js elements that developers like and use are .env files. 
+    These files let you easily save and load environment variables. 
+    Developers often use them to store confidential information. 
+    However, sometimes they forget to disable access to these files from the outside, 
+    which can lead to major security problems.
+
+8. Where Do I Store Secrets?
+Ans: Secret information, such as passwords and API keys, must be stored securely. 
+    However, this information must also be easy to access and modify. 
+    One of the common ways to store such information is using configuration files. 
+    In the case of Node.js, a very popular approach is to use .env files. 
+    Their big advantage is that such files are loaded automatically and put into environment variables. 
+    This makes it very easy for developers to access them in the code.
+    Ref: https://www.acunetix.com/blog/articles/secure-your-node-js-env-files/

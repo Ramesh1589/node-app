@@ -20,7 +20,7 @@ var options = {
 };
 
 
-// enable cors for all origins!
+// enable cors for all origins!!!
 app.use(cors());
 
 app.use(function (req, res, next) {
@@ -53,7 +53,7 @@ app.use(express.static(path.join(__dirname, './dist')));
 
 app.use('/', express.static(path.join(__dirname, './dist')));
 app.get('/', (req, res)=> {
-        res.sendFile(__dirname + './dist/index.html');
+    res.sendFile(__dirname + './dist/index.html');
 });
 
 
