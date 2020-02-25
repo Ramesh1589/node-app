@@ -439,37 +439,138 @@ function checkDate() {
 
 checkDate()
 
+//Array Sort Methods Implememtion
+//Sorting Array in Ascending Order
+function sortAscending(){
+    
+    var series = [1, 0, 0, 0, 1, 1,0];
+    return series.sort()
+}
 
-//Javascript Filter
-const demoData = [{
-    name:'ramesh',
-    role: 'developer',
-    tech: "node js"
-},{
-    name:'ramesh1',
-    role: 'developer1',
-    tech: "node js1"
-},{
-    name:'ramesh2',
-    role: 'developer2',
-    tech: "node js2"
-},{
-    name:'ramesh3',
-    role: 'developer3',
-    tech: "node js3"
-},{
-    name:'ramesh4',
-    role: 'developer4',
-    tech: "node js4"
-},{
-    name:'ramesh5',
-    role: 'developer5',
-    tech: "node js5"
-},{
-    name:'ramesh6',
-    role: 'developer6',
-    tech: "node js6"
-}]
+let ascending =  sortAscending();
+
+console.log('Sorting Array in Acending Order-->', ascending)
+
+//Sorting Array in Descending Order
+function sortDecending(){
+    var series = [1,2,3,4,5,6,0,8,9,10,];
+    return series.sort((a, b) => b - a)
+}
+
+let descending =  sortDecending();
+
+console.log('Sorting Array in Descending Order-->', descending)
+
+//Sorting Array Object on Key Value
+
+function sortArrObject(){
+
+    var items = [
+        { name: 'Edward', value: 21 },
+        { name: 'Sharpe', value: 37 },
+        { name: 'And', value: 45 },
+        { name: 'The', value: -12 },
+        { name: 'Magnetic', value: 13 },
+        { name: 'Zeros', value: 37 }
+    ];
+
+    // sort by value
+    return items.sort((a, b) => a.value - b.value)
+
+}
 
 
+let objOrder =  sortArrObject();
 
+console.log('Array Of Objects ===>', objOrder)
+
+function funct(){
+
+        // the array to be sorted
+    var list = ['Delta', 'alpha', 'CHARLIE', 'bravo'];
+
+    // temporary array holds objects with position and sort-value
+    var mapped = list.map((el, i)=> {
+        return { index: i, value: el.toLowerCase() };
+    })
+
+    console.log('Mapped Array Initial Stage', mapped)
+    //Output
+    // [
+    //     { index: 0, value: 'delta' },
+    //     { index: 1, value: 'alpha' },
+    //     { index: 2, value: 'charlie' },
+    //     { index: 3, value: 'bravo' }
+    // ]
+
+    // sorting the mapped array containing the reduced values
+    mapped.sort((a, b)=> {
+        if (a.value > b.value) {
+            return 1;
+        }
+        if (a.value < b.value) {
+            return -1;
+        }
+        return 0;
+    });
+
+    console.log('Mapped Arrra Stage 2', mapped)
+    //Output 
+    // [
+    //     { index: 1, value: 'alpha' },
+    //     { index: 3, value: 'bravo' },
+    //     { index: 2, value: 'charlie' },
+    //     { index: 0, value: 'delta' }
+    // ]
+    // container for the resulting order
+    var result = mapped.map(function(el){
+        return list[el.index];
+        //outout
+        // [ 'alpha', 'bravo', 'CHARLIE', 'Delta' ]
+    });
+
+    console.log("Funct --->", result)
+
+}
+
+funct()
+
+
+//Function For To Scheck an Index positionis  Of an Element in arry
+
+function ArrayIndex(){
+    var indices = [];
+    var array = ['a', 'b', 'a', 'c', 'a', 'd'];
+    var element = 'a';
+    var idx = array.lastIndexOf(element);
+   
+    console.log('Index of Element', idx)
+   
+    while (idx != -1) {
+
+        indices.push(idx);
+
+        idx = (idx > 0 ? array.lastIndexOf(element, idx - 1) : -1);
+        //Output
+        // [ 4, 2, 0 ]
+    }
+
+    console.log('Postions of "a" element in Array',indices);
+
+}
+ArrayIndex()
+
+
+//To find Index Of Large Number from Array
+function largeNumber(){
+
+    const array1 = [5, 12, 8, 130, 44];
+
+    const isLargeNumber = (element) => element > 13;
+    
+    console.log(`Index Of Large Number `, array1.findIndex(isLargeNumber));
+    // expected output: 3
+    
+}
+
+// largeNumber()

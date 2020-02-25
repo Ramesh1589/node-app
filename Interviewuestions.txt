@@ -36,14 +36,14 @@ What is node js?
         to these events and immediately triggers a callback function as soon as the corresponding event is detected in that loop.
 
 4.	What is Blocking IO ?
-    •	Traditionally when a system calls an I/O request that comes to a webserver and is assigned to an available thread or 
+    •	Traditionally when a system or client  calls an I/O request that comes to a webserver and is assigned to an available thread or 
         each concurrent connection there is a thread. 
     •	The request is handled continuously on that thread until the request is complete and response is sent.  
     •	While handling the data between functions such as GetFile(file) & Open(File) there will be some amount of idle time. 
     •	Thread consumes memory, so a long-running thread for each connection & not using it is not efficient.
 
 5.	What is Non-Blocking I/O ?
-    •	A system call is returned immediately without waiting for the data to be read or written (aka operation to complete). 
+    •	A system or client or browser call is returned immediately without waiting for the data to be read or written (aka operation to complete). 
     •	If no results are available at the moment of the call, the function will simply return a predefined constant, 
         indicating that there is no data available to return at that moment.
     •	A loop iterate over the resource and when the resource is found (the operation is completed) it is returned. 
@@ -55,10 +55,11 @@ What is node js?
     •	While developing an application we may encounter that we are using a lot of nested callback functions.
     •	This is what happens due to the nesting of callback functions. 
     •	Now imagine if we need to perform multiple nested operations like this. 
-    •	That would make our code messy and very complex. In Node.js world, this problem is called “Callback Hell”.
+    •	That would make our code messy and very complex. 
+        In node.js world, this problem is called “Callback Hell”.
     •	To resolve this issue we need to get rid of the callback functions whilst nesting. 
     •	This is where Promises come into the picture.
-    •	A Promise in Node means an action which will either be completed or rejected. 
+    •	A Promise in node means an action which will either be completed or rejected. 
     •	In case of completion, the promise is kept and otherwise, the promise is broken. 
     •	So as the word suggests either the promise is kept or it is broken. 
     •	And unlike callbacks, promises can be chained.
@@ -95,3 +96,27 @@ Ans: Secret information, such as passwords and API keys, must be stored securely
     Their big advantage is that such files are loaded automatically and put into environment variables. 
     This makes it very easy for developers to access them in the code.
     Ref: https://www.acunetix.com/blog/articles/secure-your-node-js-env-files/
+
+9. What is Call stack and the call stack, event loop and callback queue ?    
+Ans:
+    - The call stack is a mechanism in Javascript used to keep track of where it is in a program. 
+    - It knows which functions are currently being run and which to call next. 
+    - The catch with the call stack is that you can only add things to the top of the stack. 
+    - It’s a last-in-first-out (LIFO) idea.
+    - When a function is called, it is added to the top of the stack and run. 
+    - If that function calls another function, it is then added to the top of the stack and then it is run. 
+    - Only the function at the top of the stack is the one that can be run.
+    - The function gets added to the stack, then the statements inside the function get added as they are called and removed as they are executed. 
+    Finally, main() is the only thing left and, in this case, the program is finished.
+    - In an asynchronous program, there are a few more pieces that come into the mix. 
+    - The first is the callback queue. 
+    - This is a kind of holding area where callback functions go once they are called. 
+    - The callback queue works together with the event loop to execute callback functions at the right time. 
+    - The event loop checks the call stack to see if it is empty. 
+    - If it is then the first callback function in the callback queue gets executed, then the second etc. 
+    - If the call stack is not empty, then those callback functions wait.
+    - This is what causes output from a callback function to appear after all of the other non-callback functions. 
+    - The non-callback functions are like VIPs that don’t have to wait in line to get executed. 
+    - Meanwhile, those callback functions are being held in a separate queue until it is their turn.
+    Ref:
+    eg. https://medium.com/@thejasonfile/how-node-and-javascript-handle-asynchronous-functions-7feb9fc8a610
