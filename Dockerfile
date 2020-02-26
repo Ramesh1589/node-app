@@ -27,17 +27,23 @@ RUN apt-get -y install python build-essential nodejs
 RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 
 RUN sudo apt-get install -y nodejs nginx build-essential g++ node-gyp 
-    
+
+
 # Create app directory
 WORKDIR /node-app
 
+COPY app.conf /etc/nginx/conf.d/app.conf
+
+# To verify nginx configuration
+RUN sudo nginx -t
+
+# Restart nginx
+RUN sudo service nginx restart
+
 # Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY package.json ./
 
-# If you are building your code for production
-# RUN npm ci --only=production
 # Install APP Prerequisites
 RUN npm install --production
 
