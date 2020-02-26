@@ -32,10 +32,10 @@ RUN apt-get update -q  \
 # Create app directory
 WORKDIR /node-app
 
-    COPY app.conf /etc/nginx/conf.d/app.conf
+#COPY app.conf /etc/nginx/conf.d/app.conf
 
 # To verify nginx configuration
-RUN sudo nginx -t
+#RUN sudo nginx -t
 
 # Restart nginx
 RUN sudo service nginx restart
