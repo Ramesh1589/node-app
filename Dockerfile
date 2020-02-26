@@ -38,7 +38,7 @@ WORKDIR /node-app
 #RUN sudo nginx -t
 
 # Restart nginx
-RUN sudo service nginx restart
+#RUN sudo service nginx restart
 
 # Install app dependencies
 # where available (npm@5+)
