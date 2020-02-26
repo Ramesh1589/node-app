@@ -1,4 +1,6 @@
 const Joi = require('@hapi/joi');
+const SQLDB = require('../../db/mysql');
+const config = require('../../config');
 const service = require('./auth.service');
 const constant = require('../../utils/constant.js');
 const { buildSuccessObject, handleSuccess, 

@@ -117,7 +117,7 @@ Ans:
     - If the call stack is not empty, then those callback functions wait.
     - This is what causes output from a callback function to appear after all of the other non-callback functions. 
     - The non-callback functions are like VIPs that don’t have to wait in line to get executed. 
-    - Meanwhile, those callback functions are being held in a separate queue until it is their turn.
+    - Those callback functions are being held in a separate queue until it is their turn.
         1.Call Stack :- 
             It’s a data structure which records the function calls, basically where in the program we are. 
             If we call a function to execute , we push something on to the stack, and when we return from a function, 
@@ -128,7 +128,7 @@ Ans:
 
         3.Queue :- 
             A JavaScript runtime contains a message queue, which is a list of messages to be processed and 
-            the associated callback functions to execute. When the stack has enough capacity, a message is taken out of the queue 
+            associated callback functions to execute. When the stack has enough capacity, a message is taken out of the queue 
             and processed which consists of calling the associated function (and thus creating an initial stack frame). 
             The message processing ends when the stack becomes empty again. 
             In basic words , these messages are queued in response to external 
@@ -147,31 +147,30 @@ Ans:
 
 9. What is Express js ?
 Ans: 
-    - Express is a minimal and flexible node.js web application framework that provides a robust set of features for 
+    - Express is a nodejs web application framework that provides a robust set of features for 
       web and mobile applications.
-    - With a myriad of HTTP utility methods and middleware at your disposal, creating a robust API is quick and easy.
-    - Express provides a thin layer of fundamental web application features, without obscuring node.js features that you know and love.
+    - With a HTTP utility methods and middleware we creating a robust API is quick and easy.
+    - Express provides a thin layer of fundamental web application features.
 
 
 9. What is Middleware in node js ?
 Ans: 
     - Middleware functions are functions that have access to the request object (req), 
-    the response object (res), and the next function in the application’s request-response cycle. 
-    The next function is a function in the Express router which, when invoked, executes the middleware succeeding the current middleware.
+     the response object (res), and the next function in the application’s request-response cycle. 
+    - The next function is a function in the Express router which, when invoked, executes the middleware succeeding the current middleware.
 
     - Middleware functions can perform the following tasks:
-
-    - Execute any code.
-      - Make changes to the request and the response objects.
-      - End the request-response cycle.
-      - Call the next middleware in the stack.
-      - If the current middleware function does not end the request-response cycle, 
+        - Execute any code.
+        - Make changes to the request and the response objects.
+        - End the request-response cycle.
+        - Call the next middleware in the stack.
+        - If the current middleware function does not end the request-response cycle, 
         it must call next() to pass control to the next middleware function. Otherwise, the request will be left hanging.
 
-    The following figure shows the elements of a middleware function call:
-    - Application-level middleware
-    - Router-level middleware
-    - Error-handling middleware
-    - Built-in middleware
-    - Third-party middleware
+    - The following figure shows the elements of a middleware function call:
+        - Application-level middleware
+        - Router-level middleware
+        - Error-handling middleware
+        - Built-in middleware
+        - Third-party middleware
 

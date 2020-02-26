@@ -20,6 +20,8 @@ const password = config.get('db.mongodb.password') ? encodeURIComponent(config.g
 const port = config.get('db.mongodb.port')
 const host = config.get('db.mongodb.server')
 const url = password ? `mongodb://${username}:${password}@${host}:${port}/${database}` : `mongodb://${host}:${port}/${database}`
+console.log('MongoDB url: ', url)
+
 const mongodb_options = config.get('db.mongodb.options')
 // mongo connection events
 mongoose.connection.on('connected', () => {
