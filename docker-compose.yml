@@ -9,7 +9,6 @@ services:
       - mongo
   mongo:
     container_name: mongo
-    restart: always
     image: mongo
     ports:
       - '27017:27017'
