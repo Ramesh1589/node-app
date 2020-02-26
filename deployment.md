@@ -27,7 +27,7 @@ git clone yourproject.git
 cd yourproject
 npm install
 npm start (or whatever your start command)
-# stop app
+# stop app  
 ctrl+C
 ```
 ## 6. Setup PM2 process manager to keep your app running

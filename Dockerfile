@@ -20,19 +20,19 @@ RUN apt-get update -q  \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN apt-get -y install python build-essential nodejs
+#RUN apt-get -y install python build-essential nodejs
     
 
 # Install nodejs
-RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+#RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 
-RUN sudo apt-get install -y nodejs nginx build-essential g++ node-gyp 
+#RUN sudo apt-get install -y nodejs nginx build-essential g++ node-gyp 
 
 
 # Create app directory
 WORKDIR /node-app
 
-COPY app.conf /etc/nginx/conf.d/app.conf
+    COPY app.conf /etc/nginx/conf.d/app.conf
 
 # To verify nginx configuration
 RUN sudo nginx -t
@@ -60,3 +60,4 @@ EXPOSE 80 443 8000
 ENV NODE_ENV development
 
 CMD npm dev
+
