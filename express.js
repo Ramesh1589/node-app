@@ -68,6 +68,14 @@ app.use(function (req, res, next) {
 app.use(bodyParser.json({ type: 'application/json', limit: '50mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 app.use(bodyParser.text());
+// i18n
+i18n.configure({
+    locales: ['en', 'ar'],
+    directory: `${__dirname}/locales`,
+    defaultLocale: 'ar',
+    objectNotation: true
+  })
+  app.use(i18n.init)
 
 app.use('/api-docs', swaggerUi.serve);
 app.get('/api-docs', swaggerUi.setup(swaggerDocument, options));

@@ -54,6 +54,12 @@
               "schema": {
                 "$ref": "#/definitions/login"
               }
+            },{
+              "name": "languagecode",
+              "in": "header",
+              "description": "Language Code",
+              "required": true,
+              "type": "string"
             }
             
           ],

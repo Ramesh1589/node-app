@@ -1,7 +1,7 @@
 const i18n = require('i18n')
 const { sendEmail } = require('./aws.sns')
 const CONFIG = require('../config')
-const SQLDB = require('../db/mysql')
+// const SQLDB = require('../db/mysql')
 
 /**
  * Sends email

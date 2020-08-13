@@ -1,3 +1,7 @@
+
+
+https://medium.com/@shinjukudev/algorithm-interview-questions-and-answers-js-c44f0872b9b2
+https://github.com/kennymkchan/interview-questions-in-javasc
 https://www.geeksforgeeks.org/node-js-callback-concept/
 https://blog.eduonix.com/web-programming-tutorials/learn-event-driven-programming-node-js/
 What is node js?
@@ -173,4 +177,11 @@ Ans:
         - Error-handling middleware
         - Built-in middleware
         - Third-party middleware
+
+
+10. Diff beetween spead and rest operator?
+- The spread operator allows us to spread the value of an array (or any iterable) 
+  across zero or more arguments in a function or elements in an array
+ (or any iterable). 
+ The rest parameter allows us to pass an indefinite number of parameters to a function and access them in an array.
 

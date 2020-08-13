@@ -1,10 +1,13 @@
 const Joi = require('@hapi/joi');
-const SQLDB = require('../../db/mysql');
+const i18n = require('i18n')
+// const SQLDB = require('../../db/mysql');
 const config = require('../../config');
 const service = require('./auth.service');
 const constant = require('../../utils/constant.js');
 const { buildSuccessObject, handleSuccess, 
-        handleError, buildErrObject } = require('../../handlers/errors')
+        handleError, buildErrObject,
+        buildUsefulErrorObject
+    } = require('../../handlers/errors')
 const lruCache = require('lru-cache');
 let {userLogin } = require('./validation')
 
@@ -15,6 +18,25 @@ const cacheOptions = Object.assign(
   );
 const cache = new lruCache(cacheOptions);
 
+const messageKey = {
+    "en": {
+       "id" : {
+           "any.required": "Required Password",
+           "min": "Password Should be greater than 5 characters",
+           "min": "Password Should be less than 5 characters ",
+        },
+        "username":{
+            "required": "Required Username",
+            "min": "Username Should be greater than 5 characters",
+            "min": "Username Should be less than 5 characters ",
+        }
+    },
+    'ar':{
+
+    }
+}
+
+// console.log("Message path ::", `${messageKey.en.password.required}`)
 class AuthController {
     constructor(){}
 
@@ -49,12 +71,15 @@ class AuthController {
                 // })
             }
         }else{
-            handleError(res, buildErrObject(400, error.details[0].message.replace(/['"]/g, '')))
-             
-            // res.json({
-            //     status: 400,
-            //     message: error.details[0].message.replace(/['"]/g, '')
-            // });
+            // const {type} =  buildUsefulErrorObject(error.details)
+            const [errors] = error.details
+            console.log("Message ::", errors)
+            res.json({
+                status: 400,
+                // message:  buildUsefulErrorObject(error.details),
+                message: i18n.__(`${errors.path.join('_')}.${errors.type}`)
+                // msg2: buildUsefulErrorObject(error.details)[msg]
+            });
         }
         
     }

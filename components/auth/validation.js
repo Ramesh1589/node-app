@@ -2,8 +2,9 @@ const Joi = require('@hapi/joi');
 
 let schema = {}
 schema.userLogin = Joi.object().keys({
-    username          :    Joi.string().trim().required(),
-    password        :    Joi.string().trim().required(),
+    id          :    Joi.number().required(),
+    username    :    Joi.string().min(5).max(10).trim().required(),
+    password    :    Joi.string().min(5).max(10).trim().required(),
 });
 
 

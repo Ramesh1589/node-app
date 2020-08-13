@@ -1,5 +1,5 @@
 const Joi = require('@hapi/joi');
-const SQLDB = require('../../db/mysql')
+// const SQLDB = require('../../db/mysql')
 const { catchErrors } = require('../../handlers/errors')
 const { registerEmployee, updateEmployee } = require('./employee.validate')
 const constant = require('../../utils/constant')
@@ -30,7 +30,6 @@ exports.createEmployee = async function (req, res, next) {
                 message: "Employee Ceated Successfully"
             })
         }
-        
     }else{
         res.status(constant.httpStatusCode.badRequest).json({
             status: constant.responseCodes.revalidation,

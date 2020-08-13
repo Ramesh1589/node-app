@@ -1,10 +1,10 @@
 {
   "db": {
     "mysql": {
-      "host": "localhost",
+      "host": "demo.cfytnnqcqw9r.ap-south-1.rds.amazonaws.co",
       "port": 3306,
-      "username": "root",
-      "password": "",
+      "username": "admin",
+      "password": "YAic42UGrz8RtbMZXDJs",
       "database": "demo",
       "dialect": "mysql",
       "logging": false,

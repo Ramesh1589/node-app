@@ -1,4 +1,10 @@
 {
+  "username":{
+    "string":{
+      "min": "Username should be grater than 5 characters,"
+    }
+    
+  },
   "registration": {
     "SUBJECT": "Verify your email at News Video",
     "MESSAGE": "<p>Hello %s.</p> <p>Welcome! To verify your email, please click in this link:</p> <p>%s/verify/%s</p> <p>Thank you.</p>"

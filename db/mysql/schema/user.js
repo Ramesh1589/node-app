@@ -56,7 +56,8 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     }
   }, {})
-  
+  // User.hasMany(role, { as: 'roles' });
+
   user.beforeCreate(function (instance, options) {
     const salt = bcrypt.genSaltSync(5)
     instance.password = bcrypt.hashSync(instance.password, salt)

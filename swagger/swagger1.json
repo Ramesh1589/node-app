@@ -255,6 +255,12 @@
               "required": true,
               "type": "integer",
               "format": "int64"
+            },{
+              "name": "languagecode",
+              "in": "header",
+              "description": "Language Code",
+              "required": true,
+              "type": "string"
             }
           ],
           "responses": {

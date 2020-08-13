@@ -1,3 +1,4 @@
+const i18n = require('i18n')
 /**
  * Builds error object
  * @param {number} status - error status code
@@ -130,3 +131,20 @@ exports.productionErrors = (err, req, res, next) => {
     message: err.message || 'Internal server error'
   })
 }
+
+exports.buildUsefulErrorObject = (errors) => {
+  console.log("Errors ::", errors)
+  const usefulErrors = {};
+  errors.map((error) => {
+    console.log("Error ::", error)
+    if (!usefulErrors.hasOwnProperty(error.path.join('_'))) {
+      usefulErrors[error.path.join('_')] = {
+        key : error.path.join('_'),
+        type: error.type,
+        msg: `${error.path.join('_')}.${error.type}`,
+        // message: i18n.__(`${error.path.join('_')}.${error.type}`)
+      };
+    }
+  });
+  return usefulErrors;
+};

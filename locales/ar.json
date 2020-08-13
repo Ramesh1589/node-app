@@ -1,4 +1,12 @@
 {
+
+  "username":{
+    "string":{
+      "min": "يجب أن يكون اسم المستخدم أكبر من 5 أحرف باللغة العربية",
+      "max": "اسم المستخدم طويل"
+    }
+    
+  },
   "registration": {
     "SUBJECT": "Verificar tu Email en News Video",
     "MESSAGE": "<p>Hola %s.</p> <p>¡Bienvenido! Para verificar tu Email, por favor haz click en este enlace:</p> <p>%s/verify/%s</p> <p>Gracias.</p>"

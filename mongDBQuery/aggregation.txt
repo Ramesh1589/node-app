@@ -122,3 +122,169 @@ db.getCollection('employee').aggregate([
     ]
 }
 ]
+
+
+
+//Mongo DB Query ===> 28/02/2020
+
+
+db.getCollection('employee').find({ salary: {$gt: 3000}})
+
+db.getCollection('employee').find({isActive: false})
+
+db.getCollection('employee').find({eyeColor: { $not: {$eq: 'blue'}}})
+
+db.getCollection('employee').find({}).skip(3).limit(15)
+
+db.getCollection('employee').find({gender: { $in: ['male']}}).explain()
+
+db.getCollection('employee').find().count()
+
+db.getCollection('employee').find({
+    $and : [
+         {$or: [{age: {$gt: 25}}]},
+         {$or: [{isActive: true}]}   
+    ]
+})
+
+
+db.getCollection('employee').find({
+    $or: [{isActive: true}, {gender: 'male'}]
+})
+
+
+db.getCollection('employee').distinct('name')
+
+
+
+db.getCollection('employee').distinct('age')
+
+
+db.getCollection('employee').max()
+
+
+Mongo DB Aggregation Complex Query
+=================================
+db.getCollection('employee').aggregate([
+    {$group: {
+        
+        _id: '$favoriteFruit',
+        count: {
+                    $sum: { 
+                            $cond: [
+                                        {
+                                            $and : [ 
+                                                { $eq: [ "$isActive", true] },
+                                                //{ $eq: [ "$favoriteFruit","apple"] }
+                                            ] 
+                                        },
+                                        1,
+                                        0 
+                            ] 
+                        }
+                }   
+      }
+  }
+])
+
+
+
+
+//groupBY Query With Count 
+db.getCollection('employee').aggregate([    
+    { 
+        "$group": { 
+           "_id": "$gender",             
+            "strawberry_count": {
+                "$sum": {
+                    "$cond": [ { "$eq": [ "$favoriteFruit", "strawberry" ] }, 1, 0 ]
+                }
+            },
+            "banana_count": {
+                "$sum": {
+                    "$cond": [ { "$eq": [ "$favoriteFruit", "banana" ] }, 1, 0 ]
+                }
+            },
+            "apple_count": {
+                "$sum": {
+                    "$cond": [ { "$eq": [ "$favoriteFruit", "apple" ] }, 1, 0 ]
+                }
+            }
+        }  
+    },
+    {
+        "$project": {
+           "_id": 0, "gender": "$_id",            
+            "favoriteFruit": {
+                "strawberry": "$strawberry_count",
+                "banana": "$banana_count",
+                "apple": "$apple_count"
+            }
+        }
+    }
+])
+
+===============
+Output:
+    /* 1 */
+{
+    "gender" : "female",
+    "favoriteFruit" : {
+        "strawberry" : 42.0,
+        "banana" : 40.0,
+        "apple" : 41.0
+    }
+}
+
+/* 2 */
+{
+    "gender" : "male",
+    "favoriteFruit" : {
+        "strawberry" : 49.0,
+        "banana" : 48.0,
+        "apple" : 51.0
+    }
+}
+
+
+
+=============================
+Group BY Query
+==============================
+
+db.getCollection('employee').aggregate([
+    { "$group": {
+        "_id": {
+            "$cond": [
+                { "$lt": [ "$age", 25 ] },
+                "0-25",
+                { "$cond": [
+                        { "$lt": [ "$age", 30 ] },
+                         "25-30♥",
+                         "30-35"
+                   ]
+                }
+            ]
+        },
+        "count": { "$sum": 1 }
+    }}
+])
+
+Output:
+    /* 1 */
+{
+    "_id" : "30-35",
+    "count" : 142.0
+}
+
+/* 2 */
+{
+    "_id" : "0-25",
+    "count" : 65.0
+}
+
+/* 3 */
+{
+    "_id" : "25-30♥",
+    "count" : 64.0
+}

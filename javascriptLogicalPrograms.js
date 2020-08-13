@@ -236,6 +236,30 @@ let dublicate1 =  [...new Set([1, 3, 3, 3, 1, 5, 6, 7, 8, 1])]
 
 // console.log("Dublicate Array ::", dublicate, dublicate1)
 
+// Remove all duplicates from an array of integers
+const removeDupes = (arr) => {
+  
+    let result = [];
+  
+    let previous = arr[0];
+  
+    result[0] = previous;
+    
+    for(let i = 0; i < arr.length; i++) {
+      
+        if (arr[i] != previous) {
+
+            result.push(arr[i]);
+            
+        }
+      
+      previous = arr[i];
+    }
+    
+    return result;
+  }
+  console.log("Remove Dublicate Array ::", removeDupes([1,1,1,2,2,2,3,3,])); // prints [1]
+
 
 //Swapping Two no without temp
 function swapNumb(a, b) {
@@ -283,16 +307,18 @@ function removeDuplicateChar(str){
     
     for (var j in charCount){
       if (charCount[j]==1)
-         newStr.push(j);
+        //  newStr.push(j);
+        newStr+=j;
     }
 
+
     // console.log("Character countss", charCount)
-    return {newString: newStr.join(''), count: charCount};
+    return {newString: newStr, /* newStr.join(''),*/ count: charCount};
   }
 
 let string = removeDuplicateChar('Learn more javascript dude');
 
-// console.log('Rervese string -->', string)
+console.log('Rervese string -->', string)
 
 
 //Count Total number of zeros from 1 upto n?
@@ -318,10 +344,10 @@ function sumUptoSingle(n){
     return sum
 }
 
-let t1 = sumUptoSingle(191)
+let t1 = sumUptoSingle(12589)
 
 
-// console.log("sum of number upto single digit", t1)
+console.log("sum of number upto single digit", t1)
 
 //Addition Of Numbers
 
@@ -352,7 +378,7 @@ function additionsofnumbers(number){
 
 }
 
-let sumAllNumbers = additionsofnumbers(10)
+let sumAllNumbers = additionsofnumbers(20)
 
 console.log("Additin of n numbers --->", sumAllNumbers)
 
@@ -574,3 +600,154 @@ function largeNumber(){
 }
 
 // largeNumber()
+
+//Programms for nth Fibonacci number
+
+
+function fibonacci(n){
+    if(n<=1)
+      return n;
+    else
+      return fibonacci(n-1) + fibonacci (n-2);  
+}
+
+const f1 =  fibonacci(0)
+
+console.log("Fibonacci Series is ::", f1)
+
+//Fancy Algorith for to get Divisore Numbers
+function greatestCommonDivisor(a, b){
+    if(b == 0)
+      return a;
+    else 
+      return greatestCommonDivisor(b, a%b);
+}
+
+const divisor = greatestCommonDivisor(15, 50)
+
+console.log("Greates Divisor ::", divisor)
+
+
+//Program to Check palindrom
+function checkPalidrom(str){
+
+    return str == str.split('').reverse().join('');
+    
+}
+
+const palindrom = checkPalidrom('madam')
+
+console.log('Is String Palidrom ::', palindrom)
+
+
+//Program to find Missing number from Aray
+function missingNumber(arr){
+    var n = arr.length + 1, 
+    
+    sum = 0,
+    
+    expectedSum = n * (n+1)/2;
+    
+    for(var i = 0, len = arr.length; i < len; i++){
+      
+        sum += arr[i];
+    
+    }
+    
+    return expectedSum - sum;
+}
+
+const number =  missingNumber([5, 2, 6, 1, 3])
+
+console.log("Missing Numbers from array ::", number)
+
+
+// Find the largest and smallest number in an unsorted array of integers
+
+const findMaxMin = (arr) => {
+  let max = arr[0];
+  let min = arr[0];
+  
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i] > max) {
+      max = arr[i];
+    } else if (arr[i] < min) {
+      min = arr[i];
+    }
+  }
+  
+  return {
+    "max": max,
+    "min": min
+  };
+}
+
+//Output
+// { max: 101, min: 0 }
+
+console.log(findMaxMin([1, 2, 3, 4, 100])); // Returns object { "max": 100, "min": 1 }
+
+
+// 4. Return an array showing the cumulative sum at each index of an array of integerss
+
+const cumulativeSum = (list) => {
+  
+  let result = [list[0]];  //[1]
+
+  console.log("List Array", [list[0]])
+  
+    for(let i = 1; i < list.length; i++) {
+        
+        result.push(list[i] + result[i-1]);
+  
+    } 
+  
+  return result;
+}
+console.log(cumulativeSum([1,3,5,7])); // Returns [1, 4, 9, 16]
+
+
+// let arr = ;
+const findSumPairs = (arr, value) => {
+    
+    let sumsLookup = {};
+  
+    let output = [];
+    
+    for(let i = 0; i < arr.length; i++) {
+  
+        let targetVal = value - arr[i];
+        
+        if(sumsLookup[targetVal]) {
+    
+            output.push([arr[i], targetVal]);
+    
+        }  
+        
+        sumsLookup[arr[i]] = true;
+    }
+    
+  return output;
+}
+console.log(findSumPairs([1,5,6,1,0,1], 6));
+
+
+function bookTicket(source,destination){
+    
+    //return "ticket booked";
+    //return ["Hey how are you.Have a safe journey",source,destination];
+    //return true;
+    return function(mode){
+        console.log("From: "+source);
+        console.log("To: "+destination);
+        console.log("Mode: "+mode);
+    }
+}
+
+var result11 = bookTicket("hyd","vij");
+var result12= bookTicket("hyd","Newyork");
+var result13= bookTicket("Chennai","Andaman");
+result11("Train");
+result12("Flight");
+result13("Cruise");
+//result();

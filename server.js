@@ -9,9 +9,9 @@ const logger = require('./handlers/logger')(module)
 // require('./db/mongo').connect()
 
 // start our app
-const app = require('./app');
+const app = require('./express');
 // setting the port
-app.set('port', process.env.PORT || 8000)
+app.set('port', process.env.PORT || 3000)
 const http = require("http").createServer(app);
 const io = require("socket.io")(http);
 require('./socket/socket')(io);

@@ -14,7 +14,7 @@ const config = convict({
       host: {
         doc: 'Holds the SQL Server Host',
         format: String,
-        default: 'localhost'
+        default: 'demo.cfytnnqcqw9r.ap-south-1.rds.amazonaws.co'
       },
       port: {
         doc: 'Holds the SQL Server Port',
@@ -24,12 +24,12 @@ const config = convict({
       username: {
         doc: 'Holds the SQL Server Username',
         format: String,
-        default: 'root'
+        default: 'admin'
       },
       password: {
         doc: 'Holds the SQL Server Password',
         format: String,
-        default: ''
+        default: 'YAic42UGrz8RtbMZXDJs'
       },
       database: {
         doc: 'Holds the Database In SQL Server',
