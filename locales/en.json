@@ -34,13 +34,13 @@
 	},
 	"first_name": {
 		"string": {
+			"min": "first name length must be at least 3 characters long",
+			"max": "first_name length must be less than or equal to 10 characters long",
 			"base": "Invalid type, username must be string",
 			"empty": "first name is not allowed to be empty",
 			"pattern": {
 				"base": "first name must consists of letters only."
-			},
-			"min": "first name length must be at least 3 characters long",
-			"max": "first_name length must be less than or equal to 10 characters long"
+			}
 		},
 		"any": {
 			"required": "first name is required"

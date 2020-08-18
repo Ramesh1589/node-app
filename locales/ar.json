@@ -16,6 +16,20 @@
 			"required": "Number is required"
 		}
 	},
+	"first_name": {
+		"string": {
+			"min": "يجب ألا يقل طول الاسم الأول عن 3 أحرف",
+			"max": "يجب أن يكون طول الاسم الأول أقل من أو يساوي 10 أحرف",
+			"base": "نوع غير صالح ، يجب أن يكون اسم المستخدم سلسلة",
+			"empty": "لا يجوز أن يكون الاسم الأول فارغًا",
+			"pattern": {
+				"base": "يجب أن يتكون الاسم الأول من أحرف فقط"
+			}
+		},
+		"any": {
+			"required": "الإسم الأول مطلوب"
+		}
+	},
 	"registration": {
 		"SUBJECT": "Verificar tu Email en News Video",
 		"MESSAGE": "<p>Hola %s.</p> <p>¡Bienvenido! Para verificar tu Email, por favor haz click en este enlace:</p> <p>%s/verify/%s</p> <p>Gracias.</p>"
@@ -27,10 +41,5 @@
 	"customerFeedback": {
 		"SUBJECT": "Customer Feedback",
 		"MESSAGE": "<p>Name: %s</p> <p>Message: %s</p> <p>Thank you.</p>"
-	},
-	"first_name": {
-		"string": {
-			"min": "first_name.string.min"
-		}
 	}
 }
