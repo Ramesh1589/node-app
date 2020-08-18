@@ -1,22 +1,36 @@
 {
-
-  "username":{
-    "string":{
-      "min": "يجب أن يكون اسم المستخدم أكبر من 5 أحرف باللغة العربية",
-      "max": "اسم المستخدم طويل"
-    }
-    
-  },
-  "registration": {
-    "SUBJECT": "Verificar tu Email en News Video",
-    "MESSAGE": "<p>Hola %s.</p> <p>¡Bienvenido! Para verificar tu Email, por favor haz click en este enlace:</p> <p>%s/verify/%s</p> <p>Gracias.</p>"
-  },
-  "forgotPassword": {
-    "SUBJECT": "Recuperar contraseña en News Video",
-    "MESSAGE": "<p>Para recuperar la contraseña para el usuario: %s</p> <p>haz click en el siguiente enlace:</p> <p>%s/reset-password?user_token=%s</p> <p>Si esto fue un error, puedes ignorar este mensaje.</p> <p>Gracias.</p>"
-  },
-  "customerFeedback": {
-    "SUBJECT": "Customer Feedback",
-    "MESSAGE": "<p>Name: %s</p> <p>Message: %s</p> <p>Thank you.</p>"
-  }
+	"username": {
+		"string": {
+			"min": "يجب أن يكون اسم المستخدم أكبر من 5 أحرف باللغة العربية",
+			"max": "اسم المستخدم طويل"
+		}
+	},
+	"number": {
+		"number": {
+			"base": "Number shoud be in number",
+			"greater": "Number must be greater than 0",
+			"empty": "Number is not allowed to be empty",
+			"integer": "Number must be an integer"
+		},
+		"any": {
+			"required": "Number is required"
+		}
+	},
+	"registration": {
+		"SUBJECT": "Verificar tu Email en News Video",
+		"MESSAGE": "<p>Hola %s.</p> <p>¡Bienvenido! Para verificar tu Email, por favor haz click en este enlace:</p> <p>%s/verify/%s</p> <p>Gracias.</p>"
+	},
+	"forgotPassword": {
+		"SUBJECT": "Recuperar contraseña en News Video",
+		"MESSAGE": "<p>Para recuperar la contraseña para el usuario: %s</p> <p>haz click en el siguiente enlace:</p> <p>%s/reset-password?user_token=%s</p> <p>Si esto fue un error, puedes ignorar este mensaje.</p> <p>Gracias.</p>"
+	},
+	"customerFeedback": {
+		"SUBJECT": "Customer Feedback",
+		"MESSAGE": "<p>Name: %s</p> <p>Message: %s</p> <p>Thank you.</p>"
+	},
+	"first_name": {
+		"string": {
+			"min": "first_name.string.min"
+		}
+	}
 }

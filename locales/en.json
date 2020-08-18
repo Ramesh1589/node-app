@@ -1,20 +1,66 @@
 {
-  "username":{
-    "string":{
-      "min": "Username should be grater than 5 characters,"
-    }
-    
-  },
-  "registration": {
-    "SUBJECT": "Verify your email at News Video",
-    "MESSAGE": "<p>Hello %s.</p> <p>Welcome! To verify your email, please click in this link:</p> <p>%s/verify/%s</p> <p>Thank you.</p>"
-  },
-  "forgotPassword": {
-    "SUBJECT": "Password recovery at News Video",
-    "MESSAGE": "<p>To recover the password for user: %s</p> <p>click the following link:</p> <p>%s/reset-password?user_token=%s</p> <p>If this was a mistake, you can ignore this message.</p> <p>Thank you.</p>"
-  },
-  "customerFeedback": {
-    "SUBJECT": "Customer Feedback",
-    "MESSAGE": "<p>Name: %s</p> <p>Message: %s</p> <p>Thank you.</p>"
-  }
+	"username": {
+		"string": {
+			"min": "Username should be grater than 5 characters",
+			"max": "Username lenght is exceed",
+			"base": "Username shoud be in string",
+			"empty": "Username is not allowed to be empty"
+		},
+		"any": {
+			"required": "Username is required"
+		}
+	},
+	"number": {
+		"number": {
+			"base": "Number shoud be in number",
+			"greater": "Number must be greater than 0",
+			"empty": "Number is not allowed to be empty",
+			"integer": "Number must be an integer"
+		},
+		"any": {
+			"required": "Number is required"
+		}
+	},
+	"password": {
+		"string": {
+			"min": "password should be grater than 5 characters",
+			"max": "password lenght is exceed",
+			"base": "password shoud be in string",
+			"empty": "password is not allowed to be empty"
+		},
+		"any": {
+			"required": "password is required"
+		}
+	},
+	"first_name": {
+		"string": {
+			"base": "Invalid type, username must be string",
+			"empty": "first name is not allowed to be empty",
+			"pattern": {
+				"base": "first name must consists of letters only."
+			},
+			"min": "first name length must be at least 3 characters long",
+			"max": "first_name length must be less than or equal to 10 characters long"
+		},
+		"any": {
+			"required": "first name is required"
+		}
+	},
+	"registration": {
+		"SUBJECT": "Verify your email at News Video",
+		"MESSAGE": "<p>Hello %s.</p> <p>Welcome! To verify your email, please click in this link:</p> <p>%s/verify/%s</p> <p>Thank you.</p>"
+	},
+	"forgotPassword": {
+		"SUBJECT": "Password recovery at News Video",
+		"MESSAGE": "<p>To recover the password for user: %s</p> <p>click the following link:</p> <p>%s/reset-password?user_token=%s</p> <p>If this was a mistake, you can ignore this message.</p> <p>Thank you.</p>"
+	},
+	"customerFeedback": {
+		"SUBJECT": "Customer Feedback",
+		"MESSAGE": "<p>Name: %s</p> <p>Message: %s</p> <p>Thank you.</p>"
+	},
+	"last_name": {
+		"object": {
+			"unknown": "last_name.object.unknown"
+		}
+	}
 }

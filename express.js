@@ -72,10 +72,11 @@ app.use(bodyParser.text());
 i18n.configure({
     locales: ['en', 'ar'],
     directory: `${__dirname}/locales`,
-    defaultLocale: 'ar',
-    objectNotation: true
-  })
-  app.use(i18n.init)
+    defaultLocale: 'en',
+    objectNotation: true,
+    cookie: 'lang'
+})
+app.use(i18n.init)
 
 app.use('/api-docs', swaggerUi.serve);
 app.get('/api-docs', swaggerUi.setup(swaggerDocument, options));
@@ -84,7 +85,7 @@ app.get('/api-docs', swaggerUi.setup(swaggerDocument, options));
 // app.use('/api-docs1', swaggerUi.serve)
 // app.get('/api-docs1', swaggerUi.setup(swaggerDocument1, options));
 
-// Set Static Folder
+// Set Static Foldr
 app.use(express.static(path.join(__dirname, './dist')));
 
 
@@ -92,8 +93,10 @@ app.use('/', express.static(path.join(__dirname, './dist')));
 app.get('/', (req, res)=> {
     res.sendFile(__dirname + './dist/index.html');
 });
-
-
+app.use(function (req, res, next) {
+    app.set(i18n.setLocale(req.headers.lang || 'en'))
+    next();
+})
 // routes(app);
 // after all that above middleware, we finally handle our own routes!
 require('./components')(app)

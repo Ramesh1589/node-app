@@ -17,25 +17,6 @@ const cacheOptions = Object.assign(
     { max: 1000, maxAge: 3600000 }
   );
 const cache = new lruCache(cacheOptions);
-
-const messageKey = {
-    "en": {
-       "id" : {
-           "any.required": "Required Password",
-           "min": "Password Should be greater than 5 characters",
-           "min": "Password Should be less than 5 characters ",
-        },
-        "username":{
-            "required": "Required Username",
-            "min": "Username Should be greater than 5 characters",
-            "min": "Username Should be less than 5 characters ",
-        }
-    },
-    'ar':{
-
-    }
-}
-
 // console.log("Message path ::", `${messageKey.en.password.required}`)
 class AuthController {
     constructor(){}
@@ -43,6 +24,7 @@ class AuthController {
  
     async userLogin(req, res) {
         const lang = req.headers.language || 'en';
+        i18n.setLocale(locale)
         let {error, value} =  userLogin.validate(req.body);
         if(!error){
             const {username, password} =  req.body
@@ -82,6 +64,10 @@ class AuthController {
             });
         }
         
+    }
+
+    async userSignUp(req, res) {
+        console.log("User Sign Up Request Body ::", req.body, i18n.getLocale())
     }
 
     async userList(req, res) {
